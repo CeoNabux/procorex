@@ -18,13 +18,18 @@
             </ul>
           </nav>
         </div>
+        <div class="container w-6 h-6 px-0">
+          <p-icon name="menu" class="text-white" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import PIcon from './global/PIcon.vue'
 export default {
+  components: { PIcon },
   data: () => ({
     menu: [
       { name: 'Productos', path: '/products'},
