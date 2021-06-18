@@ -1,33 +1,18 @@
 <template>
   <div class="bg-blue-800">
     <!-- CONTENEDOR CON EL LIMITE DE CRECIMIENTO -->
-    <div class="max-w-screen-xl px-2">
+    <div class="max-w-screen-xl px-2 h-28 flex items-center">
       <!-- CONTENEDOR CON EL FLEX -->
-      <div class="flex justify-between items-center">
-        <figure>
-          <img src="@/assets/logo-procorex-negro.png" alt="logo-procorex">
+      <div class="w-full flex justify-between items-center pr-5">
+        <figure class="w-44 ml-3">
+          <img class="logo-filtered" src="@/assets/logo-procorex-negro.png" alt="logo-procorex">
         </figure>
-        <div class="container px-0">
+        <div class="container w-3/5 pr-2">
           <nav>
             <ul class="container flex justify-between items-center">
-              <li>
-                <nuxt-link>
-                  Productos
-                </nuxt-link>
-              </li>
-              <li>
-                <nuxt-link>
-                  Catálogos
-                </nuxt-link>
-              </li>
-              <li>
-                <nuxt-link>
-                  Quienes somos
-                </nuxt-link>
-              </li>
-              <li>
-                <nuxt-link>
-                  Contáctanos
+              <li class="cursor-pointer" v-for="(item, i) in menu" :key="i">
+                <nuxt-link class="text-white text-lg font-semibold" :to="item.path">
+                  {{item.name}}
                 </nuxt-link>
               </li>
             </ul>
@@ -37,3 +22,22 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    menu: [
+      { name: 'Productos', path: '/products'},
+      { name: 'Catálogos', path: '/catalogue'},
+      { name: 'Quiénes somos', path: '/procorex'},
+      { name: 'Contáctanos', path: '/contact'},
+    ]
+  })
+}
+</script>
+
+<style scoped>
+.logo-filtered {
+  filter: invert(1);
+}
+</style>
