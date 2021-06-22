@@ -1,13 +1,13 @@
 <template>
   <div class="bg-blue-800">
     <!-- CONTENEDOR CON EL LIMITE DE CRECIMIENTO -->
-    <div class="max-w-screen-xl px-2 h-28 flex items-center">
+    <div class="max-w-screen-xl mx-auto px-2 h-28 flex items-center">
       <!-- CONTENEDOR CON EL FLEX -->
       <div class="w-full flex justify-between items-center pr-5">
         <figure class="w-44 ml-3">
           <img class="logo-filtered" src="@/assets/logo-procorex-negro.png" alt="logo-procorex">
         </figure>
-        <div class="container w-3/5 pr-2">
+        <div v-if="!mobile" class="container w-3/5 pr-2">
           <nav>
             <ul class="container flex justify-between items-center">
               <li class="cursor-pointer" v-for="(item, i) in menu" :key="i">
@@ -18,7 +18,7 @@
             </ul>
           </nav>
         </div>
-        <div class="container w-6 h-6 px-0">
+        <div v-else class="container w-6 h-6 px-0">
           <p-icon name="menu" class="text-white" />
         </div>
       </div>
@@ -31,13 +31,31 @@ import PIcon from './global/PIcon.vue'
 export default {
   components: { PIcon },
   data: () => ({
+    mobile: false,
+    width: 0,
     menu: [
       { name: 'Productos', path: '/products'},
       { name: 'Catálogos', path: '/catalogue'},
       { name: 'Quiénes somos', path: '/procorex'},
       { name: 'Contáctanos', path: '/contact'},
     ]
-  })
+  }),
+  created () {
+    window.addEventListener('resize', this.windowSize)
+  },
+  methods: {
+    windowSize () {
+      this.width = window.innerWidth
+      if (this.width < 767) {
+        this.mobile = true
+      } else {
+        this.mobile = false
+      }
+    }
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.windowSize)
+  }
 }
 </script>
 
