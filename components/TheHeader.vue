@@ -7,7 +7,7 @@
         <figure class="w-44 ml-3">
           <img class="logo-filtered" src="@/assets/logo-procorex-negro.png" alt="logo-procorex">
         </figure>
-        <div v-if="!mobile" class="container w-3/5 pr-2">
+        <div class="container w-3/5 pr-2 menu">
           <nav>
             <ul class="container flex justify-between items-center">
               <li class="cursor-pointer" v-for="(item, i) in menu" :key="i">
@@ -18,9 +18,9 @@
             </ul>
           </nav>
         </div>
-        <div v-else class="container w-6 h-6 px-0">
+        <button class="container w-6 h-6 px-0 menu-button" @click="openMenu">
           <p-icon name="menu" class="text-white" />
-        </div>
+        </button>
       </div>
     </div>
   </div>
@@ -31,8 +31,7 @@ import PIcon from './global/PIcon.vue'
 export default {
   components: { PIcon },
   data: () => ({
-    mobile: false,
-    width: 0,
+    isMobile: false,
     menu: [
       { name: 'Productos', path: '/products'},
       { name: 'Catálogos', path: '/catalogue'},
@@ -40,21 +39,10 @@ export default {
       { name: 'Contáctanos', path: '/contact'},
     ]
   }),
-  created () {
-    window.addEventListener('resize', this.windowSize)
-  },
   methods: {
-    windowSize () {
-      this.width = window.innerWidth
-      if (this.width < 767) {
-        this.mobile = true
-      } else {
-        this.mobile = false
-      }
+    openMenu () {
+      return this.isMobile = !this.isMobile
     }
-  },
-  destroyed () {
-    window.removeEventListener('resize', this.windowSize)
   }
 }
 </script>
@@ -62,5 +50,18 @@ export default {
 <style scoped>
 .logo-filtered {
   filter: invert(1);
+}
+
+.menu-button {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .menu {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+  }
 }
 </style>
