@@ -18,7 +18,7 @@
             </ul>
           </nav>
         </div>
-        <button class="container w-6 h-6 px-0 menu-button" @click="openMenu">
+        <button class="container w-6 h-6 px-0 menu-button" @click="showMenu">
           <p-icon name="menu" class="text-white" />
         </button>
       </div>
@@ -28,10 +28,10 @@
 
 <script>
 import PIcon from './global/PIcon.vue'
+import {mapActions , mapGetters} from 'vuex'
 export default {
   components: { PIcon },
   data: () => ({
-    isMobile: false,
     menu: [
       { name: 'Productos', path: '/products'},
       { name: 'Catálogos', path: '/catalogue'},
@@ -39,9 +39,19 @@ export default {
       { name: 'Contáctanos', path: '/contact'},
     ]
   }),
+  computed: {
+    ...mapGetters('config_drawer', ['show'])
+  },
   methods: {
-    openMenu () {
-      return this.isMobile = !this.isMobile
+    ...mapActions('config_drawer', ['activeMenu']),
+    showMenu() {
+      if (this.show) {
+        console.log(this.show)
+        return this.activeMenu(false)
+      } else {
+        console.log(this.show)
+        return this.activeMenu(true)
+      }
     }
   }
 }
@@ -61,7 +71,7 @@ export default {
     display: none;
   }
   .menu-button {
-    display: block;
+    display: flex;
   }
 }
 </style>

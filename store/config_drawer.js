@@ -1,21 +1,21 @@
-export const data = () => ({
+export const state = () => ({
   show: false
 })
 
 export const getters = {
-  showMenu(state) {
-    return this.show
+  show(state) {
+    return state.show
   }
 }
 
 export const mutations = {
   SHOW_MENU(state, bool) {
-    return (state.show = bool)
+    return state.show = bool
   }
 }
 
 export const actions = {
-  active({commit}, bool) {
-    return commit("SHOW_MENU")
+  activeMenu({commit}, bool) {
+    return commit("SHOW_MENU", bool)
   }
 }

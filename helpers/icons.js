@@ -1,5 +1,6 @@
-import { mdiMenu } from '@mdi/js'
+import { mdiCloseThick, mdiMenu } from '@mdi/js'
 
 export default {
-  menu: mdiMenu
+  menu: mdiMenu,
+  close: mdiCloseThick
 }
