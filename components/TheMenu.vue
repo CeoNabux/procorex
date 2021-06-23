@@ -4,6 +4,11 @@
       <div class="w-full flex items-center mt-4">
         <nav class="w-full px-2">
           <ul class="w-full flex flex-col justify-between items-center">
+            <div class="w-full flex justify-end items-center">
+              <button class="w-8 h-8 rounded-full bg-blue-600 p-2 focus:outline-none" @click="closeMenu">
+                <p-icon name='close' class="text-blue-50"></p-icon>
+              </button>
+            </div>
             <li class="flex justify-between items-center cursor-pointer my-4 w-full" v-for="(item, i) in menu" :key="i">
               <nuxt-link class="text-yellow-600 text-lg font-semibold" :to="item.path">
                 {{item.name}}
@@ -40,11 +45,9 @@ export default {
   },
   methods: {
     ...mapActions('config_drawer', ['activeMenu']),
-    showMenu() {
+    closeMenu() {
       if (this.show) {
         return this.activeMenu(false)
-      } else {
-        return this.activeMenu(true)
       }
     }
   }
@@ -53,9 +56,9 @@ export default {
 <style scoped>
 .menu {
   position: fixed;
-  top: 112px;
+  top: 0;
   left: 0;
-  bottom: 50%;
+  bottom: 0;
   right: 0;
   z-index: 50;
   transition-duration: 200ms;
