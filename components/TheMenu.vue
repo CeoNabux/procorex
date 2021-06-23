@@ -1,20 +1,25 @@
 <template>
-  <div class="bg-gray-100 menu" :class="{'menu-hidden':!show}">
-    <div class="container flex flex-row justify-center items-center">
-      <div class="container flex flex-end items-center">
-        <button class="w-8 h-8" @click="showMenu">
-          <p-icon name="close" class="text-pink-700" />
-        </button>
+  <div class="bg-gray-100 menu p-2" :class="{'menu-hidden':!show}">
+    <div class="w-full flex flex-col items-center">
+      <div class="w-full flex items-center mt-4">
+        <nav class="w-full px-2">
+          <ul class="w-full flex flex-col justify-between items-center">
+            <li class="flex justify-between items-center cursor-pointer my-4 w-full" v-for="(item, i) in menu" :key="i">
+              <nuxt-link class="text-yellow-600 text-lg font-semibold" :to="item.path">
+                {{item.name}}
+              </nuxt-link>
+              <span class="w-6 h-6">
+                <p-icon name='arrowRight' class="text-yellow-600" />
+              </span>
+            </li>
+            <div class="w-full flex items-center mt-4">
+              <p class="text-xl text-blue-600 font-semibold">
+                Te recordamos que puedes visitarnos en...
+              </p>
+            </div>
+          </ul>
+        </nav>
       </div>
-      <nav class="w-full h-full flex flex-row">
-      <ul class="container flex justify-between items-center">
-        <li class="cursor-pointer my-4" v-for="(item, i) in menu" :key="i">
-          <nuxt-link class="text-yellow-600 text-2xl font-semibold" :to="item.path">
-            {{item.name}}
-          </nuxt-link>
-        </li>
-      </ul>
-    </nav>
     </div>
   </div>
 </template>
@@ -48,7 +53,7 @@ export default {
 <style scoped>
 .menu {
   position: fixed;
-  top: 0;
+  top: 112px;
   left: 0;
   bottom: 50%;
   right: 0;
