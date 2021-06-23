@@ -1,7 +1,8 @@
-import { mdiChevronRight, mdiCloseThick, mdiMenu } from '@mdi/js'
+import { mdiChevronRight, mdiCloseThick, mdiMagnify, mdiMenu } from '@mdi/js'
 
 export default {
   menu: mdiMenu,
   close: mdiCloseThick,
-  arrowRight: mdiChevronRight
+  arrowRight: mdiChevronRight,
+  search: mdiMagnify
 }
