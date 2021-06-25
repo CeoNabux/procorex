@@ -19,7 +19,7 @@
             </li>
             <div class="w-full flex items-center mt-4">
               <p class="text-xl text-blue-600 font-semibold">
-                Te recordamos que puedes visitarnos en...
+                Te recordamos que puedes visitarnos en <a class="text-xl font-bold underline" href="https://www.google.com/maps/dir//Ferreteria+Industrial+Procorex+S.A.,+Guayaquil+090606/@-2.1268001,-79.929434,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x902d72a4bae55287:0xc6ac4af353505699!2m2!1d-79.929548!2d-2.1256179" target="_blank">Nuestras oficinas</a>
               </p>
             </div>
           </ul>

@@ -98,6 +98,9 @@ export default {
   computed: {
     ...mapGetters("config_drawer", ["show"])
   },
+  mounted() {
+    this.autoClose()
+  },
   methods: {
     ...mapActions("config_drawer", ["activeMenu"]),
     showMenu() {
@@ -111,6 +114,11 @@ export default {
       if (this.show) {
         return this.activeMenu(false);
       }
+    },
+    autoClose() {
+      setTimeout( () => {
+        this.closeMessage()
+      }, 5000)
     },
     closeMessage() {
       if (!this.isMessageActive) {
