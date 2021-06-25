@@ -36,6 +36,7 @@ export default {
     menu: [
       { name: 'Productos', path: '/products'},
       { name: 'Catálogos', path: '/catalogue'},
+      { name: 'Blog', path: '/blog'},
       { name: 'Quiénes somos', path: '/procorex'},
       { name: 'Contáctanos', path: '/contact'},
     ]
