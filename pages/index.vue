@@ -1,5 +1,5 @@
 <template>
   <div>
-    Esta es la pagina principal
+    <the-hero />
   </div>
 </template>

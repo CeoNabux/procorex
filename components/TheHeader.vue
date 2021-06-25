@@ -18,7 +18,7 @@
           <figure class="w-44 ml-3">
             <img
               class="logo-filtered"
-              src="@/assets/logo-procorex-negro.png"
+              src="@/assets/logos/logo-procorex-negro.png"
               alt="logo-procorex"
             />
           </figure>
@@ -122,7 +122,6 @@ export default {
     },
     closeMessage() {
       if (!this.isMessageActive) {
-        console.log(this.isMessageActive)
         return this.isMessageActive=true
       }
     }
