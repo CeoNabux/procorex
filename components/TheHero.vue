@@ -1,14 +1,13 @@
 <template>
   <div>
     <VueSlickCarousel v-bind='settings'>
-      <div>
-        <hero-slide />
-      </div>
-      <div>
-        <hero-slide />
-      </div>
-      <div>
-        <hero-slide />
+      <div v-for="(slide, i) in heroSlides" :key="i">
+        <hero-slide
+          :title="slide.title"
+          :description="slide.description"
+          :bg-image="slide.bgImage"
+          :image="slide.image"
+        />
       </div>
     </VueSlickCarousel>
   </div>
@@ -24,15 +23,36 @@ export default {
   },
   data: () => ({
     settings: {
-      arrows: true,
-      dot: true,
+      arrows: false,
+      dots: true,
+      fade: true,
       autoplay: true,
       autoplaySpeed: 8000,
       draggable: true,
       infinite: true,
       pauseOnFocus: true,
       speed: 1000,
-    }
+    },
+    heroSlides: [
+      {
+        image: require('@/assets/general/tools-1.png'),
+        bgImage: require('@/assets/bg/bg-1.jpg'),
+        title: 'Somos la mejor opción para tu empresa',
+        description: 'Procorex trabaja pensando en las mejores soluciones para tu industria'
+      },
+      {
+        image: require('@/assets/general/tools-1.png'),
+        bgImage: require('@/assets/bg/bg-2.jpg'),
+        title: 'Somos la mejor opción para tu empresa',
+        description: 'Procorex trabaja pensando en las mejores soluciones para tu industria'
+      },
+      {
+        image: require('@/assets/general/tools-1.png'),
+        bgImage: require('@/assets/bg/bg-3.jpg'),
+        title: 'Somos la mejor opción para tu empresa',
+        description: 'Procorex trabaja pensando en las mejores soluciones para tu industria'
+      },
+    ]
   })
 }
 </script>

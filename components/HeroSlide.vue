@@ -1,24 +1,22 @@
 <template>
   <div class="w-full">
     <div
-      class="w-full relative px-6"
-      :style="{ backgroundImage: 'url(' + image + ')' }"
+      class="w-full relative py-2 md:py-0 px-0 md:px-6"
+      :style="{ backgroundImage: 'url(' + bgImage + ')' }"
     >
-      <div class="w-full grid grid-cols-12 grid-rows-6 gap-y-14 gap-x-8">
+      <div class="w-full grid grid-cols-12 grid-rows-4 md:grid-rows-6 gap-y-4 md:gap-y-14 gap-x-2 md:gap-x-8">
         <h2
-          class="text-blue-700 text-7xl row-start-2 row-span-2 col-start-1 col-span-6 font-semibold"
+          class="text-blue-700 text-5xl row-start-1 row-span-3 col-start-2 col-span-10 md:col-start-3 md:col-span-7 md:row-start-2 md:row-span-2 lg:col-start-1 lg:col-span-6 font-semibold"
         >
-          Herramientas locas jaja
+          {{title}}
         </h2>
         <p
-          class="text-gray-800 text-lg row-start-4 row-span-2 col-start-1 col-span-4 font-extralight"
+          class="text-gray-800 text-xl font-semibold row-start-4 row-span-2 col-start-2 col-span-10 md:col-start-3 md:col-span-7 lg:col-start-1 lg:col-span-4"
         >
-          Este es un contenido de locura, en donde se puede explicar la oferta
-          como tal, por lo que es necesario entender de que va el producto y a
-          quien esta dirigido
+          {{description}}
         </p>
-        <figure class="col-start-7 col-span-6 row-start-3 row-span-4">
-          <img src="@/assets/general/tools-1.png" alt="tool" />
+        <figure class="col-start-7 col-span-6 row-start-3 row-span-4 hidden lg:block">
+          <img :src="image" alt="tool" />
         </figure>
       </div>
     </div>
@@ -27,8 +25,23 @@
 
 <script>
 export default {
-  data: () => ({
-    image: require('@/assets/bg/bg-1.jpg')
-  })
+  props: {
+    title: {
+      type: String,
+      default: true
+    },
+    description: {
+      type: String,
+      default: true
+    },
+    bgImage: {
+      type: String,
+      default: true
+    },
+    image: {
+      type: String,
+      default: true
+    }
+  },
 }
 </script>
