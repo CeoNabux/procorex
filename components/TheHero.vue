@@ -42,13 +42,13 @@ export default {
       },
       {
         image: require('@/assets/general/tools-1.png'),
-        bgImage: require('@/assets/bg/bg-2.jpg'),
+        bgImage: require('@/assets/bg/bg-1.png'),
         title: 'Somos la mejor opción para tu empresa',
         description: 'Procorex trabaja pensando en las mejores soluciones para tu industria'
       },
       {
         image: require('@/assets/general/tools-1.png'),
-        bgImage: require('@/assets/bg/bg-3.jpg'),
+        bgImage: require('@/assets/bg/bg-2.png'),
         title: 'Somos la mejor opción para tu empresa',
         description: 'Procorex trabaja pensando en las mejores soluciones para tu industria'
       },
