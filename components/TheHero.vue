@@ -37,20 +37,20 @@ export default {
       {
         image: require('@/assets/general/tools-1.png'),
         bgImage: require('@/assets/bg/bg-1.jpg'),
-        title: 'Somos la mejor opción para tu empresa',
-        description: 'Procorex trabaja pensando en las mejores soluciones para tu industria'
+        title: 'Todo lo que necesitas en herramientas para la industria',
+        description: 'A tu lado desde [insertar anio]'
       },
       {
         image: require('@/assets/general/tools-1.png'),
         bgImage: require('@/assets/bg/bg-1.png'),
         title: 'Somos la mejor opción para tu empresa',
-        description: 'Procorex trabaja pensando en las mejores soluciones para tu industria'
+        description: 'Precios competitivos con las mejores marcas'
       },
       {
         image: require('@/assets/general/tools-1.png'),
         bgImage: require('@/assets/bg/bg-2.png'),
-        title: 'Somos la mejor opción para tu empresa',
-        description: 'Procorex trabaja pensando en las mejores soluciones para tu industria'
+        title: 'Soluciones al alcance de un click',
+        description: 'Seguimos trabajando para ustedes'
       },
     ]
   })
