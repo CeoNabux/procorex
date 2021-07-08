@@ -27,7 +27,7 @@ export default {
       dots: true,
       fade: true,
       autoplay: true,
-      autoplaySpeed: 8000,
+      autoplaySpeed: 6000,
       draggable: true,
       infinite: true,
       pauseOnFocus: true,
@@ -38,17 +38,17 @@ export default {
         image: require('@/assets/general/tools-1.png'),
         bgImage: require('@/assets/bg/bg-1.jpg'),
         title: 'Todo lo que necesitas en herramientas para la industria',
-        description: 'A tu lado desde [insertar anio]'
+        description: 'A tu lado desde del 2000'
       },
       {
-        image: require('@/assets/general/tools-1.png'),
-        bgImage: require('@/assets/bg/bg-1.png'),
+        image: require('@/assets/general/tools-3.jpg'),
+        bgImage: require('@/assets/bg/bg-1.jpg'),
         title: 'Somos la mejor opción para tu empresa',
         description: 'Precios competitivos con las mejores marcas'
       },
       {
-        image: require('@/assets/general/tools-1.png'),
-        bgImage: require('@/assets/bg/bg-2.png'),
+        image: require('@/assets/general/tools-2-no-exif.png'),
+        bgImage: require('@/assets/bg/bg-1.jpg'),
         title: 'Soluciones al alcance de un click',
         description: 'Seguimos trabajando para ustedes'
       },

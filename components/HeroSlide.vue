@@ -1,24 +1,26 @@
 <template>
-  <div class="w-full">
+  <div class="w-full banner">
     <div
-      class="w-full relative py-2 md:py-0 px-0 md:px-6 bg-image"
+      class="w-full relative py-4 px-2 bg-image"
       :style="{ backgroundImage: 'url(' + bgImage + ')' }"
     >
-      <div class="w-full grid grid-cols-12 grid-rows-4 md:grid-rows-4 lg:grid-rows-4 gap-y-4 md:gap-y-14 gap-x-2 md:gap-x-8 lg:gap-x-2 lg:gap-y-4 ">
-        <h2
-          class="text-blue-700 text-7xl row-start-1 row-span-2 col-start-2 col-span-10 md:col-start-3 md:col-span-7 md:row-start-1 md:row-span-2 lg:col-start-2 lg:col-span-5 font-bold mt-8"
-        >
-          {{title}}
-        </h2>
-        <p
-          class="mt-4 lg:mt-2 text-gray-800 text-3xl font-light row-start-3 row-span-1  col-start-2 col-span-10 md:col-start-3 md:col-span-7 lg:col-start-2 lg:col-span-4"
-        >
-          {{description}}
-        </p>
-        <div class="mb-3 lg:mb-1 row-start-4 row-span-1 col-start-2 col-span-10 md:col-start-3 md:col-span-7 lg:col-start-2 lg:col-span-4">
-          <p-button name="Contáctanos" class="bg-yellow-600" />
+      <div class="w-full flex p-2 justify-center">
+        <div class="container w-full flex flex-col justify-between items-center lg:w-3/5">
+          <h2
+            class="text-blue-700 text-5xl font-semibold mt-8 w-full lg:w-4/5 mb-2 text-center lg:text-left"
+          >
+            {{title}}
+          </h2>
+          <p
+            class="my-4 lg:mt-2 text-gray-800 text-3xl font-light w-full lg:w-3/5 text-center lg:text-left"
+          >
+            {{description}}
+          </p>
+          <div class="mt-3 mx-auto lg:mx-0 w-1/2">
+            <p-button name="Contáctanos" class="bg-yellow-600" />
+          </div>
         </div>
-        <figure class="col-start-7 col-span-6 row-start-2 row-span-4 hidden lg:block">
+        <figure class="w-2/5 hidden lg:flex justify-center items-end">
           <img :src="image" alt="tool" />
         </figure>
       </div>
@@ -50,9 +52,18 @@ export default {
 </script>
 
 <style scoped>
+.banner {
+  height: 550px;
+}
 .bg-image {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media only screen and (max-width: 780px) {
+  .banner {
+    height: auto;
+  }
 }
 </style>
