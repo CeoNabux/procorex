@@ -146,7 +146,7 @@ export default {
     display: flex;
   }
   .mobile-menu {
-    @apply absolute bottom-0 right-0 left-0 py-2 border-t border-blue-800
+    @apply fixed bottom-0 right-0 left-0 py-2 border-t border-blue-800
   }
 }
 </style>
