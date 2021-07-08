@@ -5,13 +5,13 @@
         Descuentos especiales
       </p>
       <div class="w-full flex flex-wrap justify-center lg:justify-between items-center mx-auto">
-        <div class="w-full lg:w-1/3 m-2">
+        <div class="w-full lg:w-1/3">
           <discount-card />
         </div>
-        <div class="w-full lg:w-1/3 m-2">
+        <div class="w-full lg:w-1/3">
           <discount-card />
         </div>
-        <div class="w-full lg:w-1/3 m-2">
+        <div class="w-full lg:w-1/3">
           <discount-card />
         </div>
       </div>
