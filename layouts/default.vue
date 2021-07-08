@@ -3,6 +3,6 @@
     <the-header />
     <the-menu />
     <nuxt/>
-    <the-footer class="mt-auto" />
+    <the-footer class="mt-auto mb-16" />
   </div>
 </template>
