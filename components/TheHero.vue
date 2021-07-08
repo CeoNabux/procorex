@@ -47,7 +47,7 @@ export default {
         description: 'Precios competitivos con las mejores marcas'
       },
       {
-        image: require('@/assets/general/tools-2-no-exif.png'),
+        image: require('@/assets/general/destornillador-no-bg-no-exif.png'),
         bgImage: require('@/assets/bg/bg-1.jpg'),
         title: 'Soluciones al alcance de un click',
         description: 'Seguimos trabajando para ustedes'
