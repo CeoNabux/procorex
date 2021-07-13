@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full p-2">
+  <div class="w-full p-2 my-12">
     <div class="w-full bg-image rounded-md shadow-md" :style="{backgroundImage: 'url(' + bgImage + ')'}">
       <div class="grid grid-cols-3 grid-rows-1 py-2">
         <div class="flex justify-start flex-col col-start-1 col-span-2 p-1">
