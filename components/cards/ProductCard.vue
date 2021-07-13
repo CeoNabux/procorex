@@ -1,5 +1,5 @@
 <template>
-  <div class="w-72 flex-none bg-gray-50 py-2 shadow mr-4 card my-12">
+  <div class="w-72 flex-none bg-gray-50 py-2 shadow-lg mr-8 card my-12">
     <div class="w-full relative">
       <span class="bg-yellow-500 absolute top-0 px-2 py-1 text-base text-white rounded-xl">Venta</span>
       <figure class="w-full my-1 p-2">
