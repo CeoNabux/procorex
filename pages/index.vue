@@ -4,6 +4,6 @@
     <the-discounts />
     <the-categories />
     <the-products />
-    <last-products />
+    <the-posts-section />
   </div>
 </template>

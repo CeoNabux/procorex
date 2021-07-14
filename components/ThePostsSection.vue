@@ -6,19 +6,19 @@
       </p>
       <div class="w-full flex flex-wrap justify-center lg:justify-between items-center mx-auto">
         <div class="w-full sm:w-1/2 lg:w-1/5">
-          <last-product-card />
+          <post-preview />
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/5">
-          <last-product-card />
+          <post-preview />
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/5">
-          <last-product-card />
+          <post-preview />
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/5">
-          <last-product-card />
+          <post-preview />
         </div>
         <div class="w-full sm:w-1/2 lg:w-1/5">
-          <last-product-card />
+          <post-preview />
         </div>
       </div>
     </div>
@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import LastProductCard from "@/components/cards/LastProductCard.vue"
+import PostPreview from "@/components/cards/PostPreview.vue"
 export default {
   components: {
-    LastProductCard
+    PostPreview
   }
 }
 </script>
