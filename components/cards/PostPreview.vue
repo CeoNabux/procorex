@@ -1,5 +1,5 @@
 <template>
-  <div class="w-72 h-80 shadow-lg bg-image rounded-md py-2 px-3" :style="{backgroundImage: 'url(' + bgImage + ')'}">
+  <div class="w-72 h-80 shadow-lg bg-image rounded-md py-2 px-3 my-4 mx-2 lg:m-1" :style="{backgroundImage: 'url(' + bgImage + ')'}">
     <div class="w-full h-full flex flex-col justify-between">
       <p class="font-semibold text-gray-300 text-right">
         12-12-21
