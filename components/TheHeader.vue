@@ -25,7 +25,7 @@
           <div class="flex items-center justify-end w-3/5 menu">
             <div class="flex justify-start items-center mr-4">
               <p class="text-blue-100 font-light mr-2">¿Necesitas ayuda?</p>
-              <p class="text-blue-100 font-medium">+593 1122334455</p>
+              <p class="text-blue-100 font-medium">2266450</p>
             </div>
             <div
               class="w-60 shadow rounded-xl h-11 flex justify-between items-center bg-blue-200 focus:bg-gray-50 px-4"
