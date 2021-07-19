@@ -1,6 +1,12 @@
 <template>
   <div>
-    Hola este es un nuevo blog
+    <div class="bg-image" :style="{backgroundImage: `url(` + image + ')' }">
+      <div class="w-full max-w-screen-xl h-80 flex justify-start items-end bg-gradient-to-t from-green-900">
+        <p class="text-left text-white font-bold text-5xl">
+          {{ title }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,5 +28,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.bg-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+</style>
 
 
