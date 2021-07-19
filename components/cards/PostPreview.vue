@@ -3,7 +3,7 @@
     <div class="w-full h-full flex flex-col justify-between bg-gradient-to-r from-indigo-800">
       <div class="py-2 px-3 my-4 mx-2 lg:m-1 w-full h-full flex flex-col justify-between ">
         <p class="font-semibold text-gray-300 text-right">
-          {{ time }}
+          {{ time.slice(0, 10) }}
         </p>
         <div class="w-full">
           <p class="text-2xl font-bold text-white">

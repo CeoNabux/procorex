@@ -44,7 +44,7 @@ export default {
   asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories', {
-        version: 'draft',
+        version: context.isDev ? 'draft' : 'published',
         starts_with: 'blog/'
       })
       .then(res => {
@@ -52,10 +52,11 @@ export default {
         return {
           posts: res.data.stories.map(bp => {
             return {
-              id: bp.content.slug,
+              id: bp.slug,
               title: bp.content.title,
               description: bp.content.description,
-              image: bp.content.image.filename
+              image: bp.content.image.filename,
+              time: bp.published_at
             }
         })}
       })

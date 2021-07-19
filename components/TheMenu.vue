@@ -34,11 +34,12 @@ import {mapGetters, mapActions} from 'vuex';
 export default {
   data: () => ({
     menu: [
-      { name: 'Productos', path: '/products'},
+      { name: 'Home', path: '/'},
+      { name: 'Productos', path: '/IndexProducts'},
       { name: 'Catálogos', path: '/catalogue'},
-      { name: 'Blog', path: '/blog'},
-      { name: 'Quiénes somos', path: '/procorex'},
-      { name: 'Contáctanos', path: '/contact'},
+      { name: 'Blog', path: '/IndexBlog'},
+      { name: 'Quiénes somos', path: '/IndexProcorex'},
+      { name: 'Contáctanos', path: '/IndexContact'},
     ]
   }),
   computed: {
