@@ -35,11 +35,11 @@ export default {
   data: () => ({
     menu: [
       { name: 'Home', path: '/'},
-      { name: 'Productos', path: '/IndexProducts'},
+      { name: 'Productos', path: '/products'},
       { name: 'Catálogos', path: '/catalogue'},
       { name: 'Blog', path: '/blog'},
-      { name: 'Quiénes somos', path: '/IndexProcorex'},
-      { name: 'Contáctanos', path: '/IndexContact'},
+      { name: 'Quiénes somos', path: '/procorex'},
+      { name: 'Contáctanos', path: '/contact'},
     ]
   }),
   computed: {

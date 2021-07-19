@@ -2,7 +2,7 @@
   <div>
     <div class="bg-image" :style="{backgroundImage: `url(` + image + ')' }">
       <div class="w-full max-w-screen-xl h-80 flex justify-start items-end bg-gradient-to-t from-green-900">
-        <p class="text-left text-white font-bold text-5xl">
+        <p class="text-left text-white font-bold text-3xl md:text-4xl lg:text-5xl">
           {{ title }}
         </p>
       </div>

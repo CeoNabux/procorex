@@ -89,10 +89,12 @@ export default {
   data: () => ({
     isMessageActive:false,
     menu: [
-      { name: "Productos", path: "/products" },
-      { name: "Catálogos", path: "/catalogue" },
-      { name: "Quiénes somos", path: "/procorex" },
-      { name: "Contáctanos", path: "/contact" }
+      { name: 'Home', path: '/'},
+      { name: 'Productos', path: '/products'},
+      { name: 'Catálogos', path: '/catalogue'},
+      { name: 'Blog', path: '/blog'},
+      { name: 'Quiénes somos', path: '/procorex'},
+      { name: 'Contáctanos', path: '/contact'},
     ]
   }),
   computed: {
