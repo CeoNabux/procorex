@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import PostPreview from '../components/cards/PostPreview.vue'
+import PostPreview from '../../components/cards/PostPreview.vue'
 
 export default {
   components: { PostPreview },

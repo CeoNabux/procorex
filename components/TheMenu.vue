@@ -37,7 +37,7 @@ export default {
       { name: 'Home', path: '/'},
       { name: 'Productos', path: '/IndexProducts'},
       { name: 'Catálogos', path: '/catalogue'},
-      { name: 'Blog', path: '/IndexBlog'},
+      { name: 'Blog', path: '/blog'},
       { name: 'Quiénes somos', path: '/IndexProcorex'},
       { name: 'Contáctanos', path: '/IndexContact'},
     ]
