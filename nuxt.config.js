@@ -40,7 +40,10 @@ export default {
     "@nuxtjs/tailwindcss",
     [
       "storyblok-nuxt",
-      { accesssToke: "wTWl6mVTgNNdks4rUtxOrAtt", cacheProvider: "memory" }
+      {
+        accessToken: "wTWl6mVTgNNdks4rUtxOrAtt",
+        cacheProvider: "memory"
+      }
     ]
   ],
 
