@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "@mdi/js": "^5.9.55",
     "@vue/composition-api": "^1.0.3",
     "axios": "^0.21.1",

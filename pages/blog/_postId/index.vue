@@ -25,6 +25,10 @@ export default {
   components: {
     SbRichText
   },
+  props: {
+    text: [String, Object],
+    default: '',
+  },
   computed: {
     richtext() {
       return typeof this.text === 'string'
