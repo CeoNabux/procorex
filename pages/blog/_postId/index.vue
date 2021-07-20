@@ -7,11 +7,11 @@
         </p>
       </div>
     </div>
-    <div class="container w-full flex flex-wrap max-w-screen-xl pl-4">
+    <div class="container w-full flex flex-col max-w-screen-xl pl-4">
         <p class="text-left text-gray-800 font-bold text-base md:text-lg mb-2 mt-6">
           Publicado en: <span class="text-yellow-800">{{ date.slice(0, 10) }}</span>
         </p>
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap mt-16">
           <sb-rich-text :text='body' />
         </div>
       </div>
@@ -24,10 +24,6 @@ import SbRichText from '@/components/SbRichText.vue'
 export default {
   components: {
     SbRichText
-  },
-  props: {
-    text: [String, Object],
-    default: '',
   },
   computed: {
     richtext() {
