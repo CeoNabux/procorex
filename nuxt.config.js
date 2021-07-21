@@ -30,7 +30,8 @@ export default {
   plugins: [
     "~/plugins/clickaway.js",
     "~/plugins/composition-api.js",
-    "~/plugins/rich-text-renderer.js"
+    "~/plugins/rich-text-renderer.js",
+    { src: "~/plugins/google-maps.js", ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

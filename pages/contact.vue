@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="w-full lg:w-1/2 flex justify-center items-center">
-        Aqui va el mapa
+        <the-map />
       </div>
     </div>
   </div>
