@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-screen-xl">
-    <div class="flex flex-col justify-between items-center">
+  <div class="w-full flex justify-center items-center">
+    <div class="w-full flex flex-col justify-between items-center">
       <!-- LAST POST -->
       <div class="w-full flex justify-center items-center bg-image mb-16" :style="{backgroundImage: 'url(' + posts[0].image + ')'}">
         <div class="w-full flex-col justify-center items-center bg-gradient-to-r from-yellow-900 py-8">
@@ -21,7 +21,7 @@
         </div>
       </div>
       <!-- GENERAL POSTS -->
-      <div class="w-full flex flex-wrap justiy-center items-center">
+      <div class="w-full max-w-screen-xl flex flex-wrap justiy-center items-center">
         <div v-for="(post, i) in posts" :key="i" class="w-full md:w-1/2 lg:w-1/3 flex justify-center items-center">
           <post-preview
             :title="post.title"
