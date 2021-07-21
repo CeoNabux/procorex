@@ -53,5 +53,8 @@ export default {
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+  env: {
+    GOOGLE_MAPS: "AIzaSyCX72tAkPW07qPrL1ZZ0OgqS0t9lG77sD0"
+  }
 };
