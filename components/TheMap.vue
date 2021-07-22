@@ -1,14 +1,14 @@
 <template>
   <div class="w-full max-h-lg">
     <GmapMap
-      :center="{ lat: -2.159065742147905, lng: -79.83919110147663 }"
+      :center="{ lat: -2.1250552399617533, lng: -79.92976922646405 }"
       :zoom="13"
       style="width: 100%; height:460px"
       class="mx-auto z-0"
       :options="mapStyle"
     >
       <GmapMarker
-        :position="{ lat: -2.159065742147905, lng: -79.83919110147663 }"
+        :position="{ lat: -2.1250552399617533, lng: -79.92976922646405 }"
         :clickable="true"
         :draggable="true"
         title="Nombre de la empresa"
@@ -49,3 +49,5 @@ export default {
   })
 };
 </script>
+
+
