@@ -39,11 +39,19 @@
         <the-map />
       </div>
     </div>
+    <div class="w-full flex justify-center place-items-center">
+      <contact-card />
+    </div>
   </div>
 </template>
 
 <script>
+import ContactCard from "@/components/cards/ContactCard.vue"
+
 export default {
+  components: {
+    ContactCard
+  },
   data: () => ({
     social: [
       {
