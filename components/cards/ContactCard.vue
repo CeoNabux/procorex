@@ -13,7 +13,8 @@
             <div class="bg-gray-200 w-full rounded-lg shadow py-2 px-4">
               <input
                 type="text"
-                class="w-full bg-transparent active:outline-none"
+                v-model="contactName"
+                class="w-full bg-transparent focus:outline-none"
                 placeholder="Luis"
               />
             </div>
@@ -25,7 +26,8 @@
             <div class="bg-gray-200 w-full rounded-lg shadow py-2 px-4">
               <input
                 type="text"
-                class="w-full bg-transparent active:outline-none"
+                v-model="contactLastname"
+                class="w-full bg-transparent focus:outline-none"
                 placeholder="Reyes"
               />
             </div>
@@ -38,7 +40,8 @@
           <div class="bg-gray-200 w-full rounded-lg shadow py-2 px-4">
             <input
               type="text"
-              class="w-full bg-transparent active:outline-none"
+              v-model="contactMail"
+              class="w-full bg-transparent focus:outline-none"
               placeholder="ejemplo@maverick.ec"
             />
           </div>
@@ -50,7 +53,8 @@
           <div class="bg-gray-200 w-full rounded-lg shadow py-2 px-4">
             <input
               type="text"
-              class="w-full bg-transparent active:outline-none"
+              v-model="message"
+              class="w-full bg-transparent focus:outline-none"
               placeholder="La pagina web me ayudo a encontrar la mejor herramienta para mi trabajo"
             />
           </div>
@@ -59,9 +63,55 @@
           <p-button
             name="Enviar mensaje"
             class="bg-yellow-600 h-10 text-white"
+            @click.prevent="sendMail"
           />
         </w-full>
       </div>
     </form>
   </div>
 </template>
+
+
+<script>
+import emailjs from 'emailjs-com'
+
+export default {
+  name: 'ContactCard',
+  data: () => ({
+    contactName: '',
+    contactLastname: '',
+    message: '',
+    contactMail: ''
+  }),
+  methods: {
+    resetField() {
+      (this.contactName = '')
+      (this.contactLastname = '')
+      (this.message = '')
+      (this.contactMail = '')
+    },
+
+    async sendMail() {
+      const params = {
+        to_name: 'Procorex',
+        from_name: this.contactName,
+        from_lastname: this.contactLastname,
+        reply_to: this.contactMail,
+        message: this.message
+      }
+      try {
+        await emailjs.send(
+          'service_obc1bzq',
+          'template_s73jya8',
+          params,
+          'user_Gz0RsCU9scvcA7DONJBoF'
+        )
+        alert('email enviado')
+        this.resetField
+      } catch (error) {
+        alert(error)
+      }
+    }
+  }
+}
+</script>
