@@ -31,6 +31,7 @@ export default {
     "~/plugins/clickaway.js",
     "~/plugins/composition-api.js",
     "~/plugins/rich-text-renderer.js",
+    "~/plugins/map.js",
     { src: "~/plugins/google-maps.js", ssr: false }
   ],
 
