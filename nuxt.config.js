@@ -20,7 +20,7 @@ export default {
         content: "Encuentra las mejores herramientas para tu empresa"
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/procorex-imagotipo.png" }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
