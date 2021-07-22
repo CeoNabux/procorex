@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-screen-xl w-full mx-auto">
-    <div class="flex flex-wrap px-4 pt-6 w-full">
+    <div class="flex flex-wrap-reverse px-4 pt-6 w-full">
       <div class="flex flex-col w-full lg:w-1/2">
         <div class="w-full lg:w-1/2 mb-12 lg:mb-0">
           <p class="text-blue-900 font-semibold text-4xl">
