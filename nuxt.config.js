@@ -32,6 +32,7 @@ export default {
     "~/plugins/composition-api.js",
     "~/plugins/rich-text-renderer.js",
     "~/plugins/map.js",
+    { src: "~/plugins/vue-pdf.js", ssr: false},
     { src: "~/plugins/google-maps.js", ssr: false }
   ],
 
@@ -54,7 +55,17 @@ export default {
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend(config, ctx) {
+      config.output.globalObject = "this"
+      config.module.rules.push(
+        {
+          test: /\.pdf$/,
+          loader: "url-loader"
+        }
+      )
+    }
+  },
   env: {
     GOOGLE_MAPS: "AIzaSyBQc4P1XMeB7jtTzLzSXpdYv-C5CVjd1-c"
   }
