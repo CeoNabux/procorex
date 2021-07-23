@@ -91,7 +91,7 @@ export default {
     menu: [
       { name: 'Home', path: '/'},
       { name: 'Productos', path: '/products'},
-      { name: 'Catálogos', path: '/catalogue'},
+      { name: 'Catálogos', path: '/catalogos'},
       { name: 'Blog', path: '/blog'},
       { name: 'Quiénes somos', path: '/procorex'},
       { name: 'Contáctanos', path: '/contact'},

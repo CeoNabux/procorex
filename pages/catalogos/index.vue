@@ -4,8 +4,8 @@
       Catálogo de productos
     </h2>
     <div class="flex flex-wrap justify-center items-center mt-10">
-      <div class="flex justify-center items-center w-full md:w-1/3 lg:w-1/5">
-        <collection-card />
+      <div class="flex justify-center items-center w-full md:w-1/3 lg:w-1/5 p-2">
+        <collection-card :title="title" :image="image" />
       </div>
     </div>
   </div>
@@ -17,6 +17,10 @@ import CollectionCard from "@/components/cards/CollectionCard.vue"
 export default {
   components: {
     CollectionCard
-  }
+  },
+  data: () => ({
+    image: require("@/assets/general/tools-1.png"),
+    title: 'Este es un titulo'
+  })
 }
 </script>
