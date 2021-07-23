@@ -1,7 +1,7 @@
 <template>
   <div>
     <the-hero />
-    <the-discounts />
+    <the-discounts :list="list" />
     <the-categories />
     <the-products />
     <the-posts-section :lista='posts' />
@@ -10,6 +10,15 @@
 
 <script>
 export default {
+  data: () => ({
+    list: [
+      {
+        bgImage: require("@/assets/general/llaves-no-exif-tinified.jpg"),
+        title: 'Taladro marcar Proto m-8000',
+        discount: '10'
+      }
+    ]
+  }),
   asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories', {

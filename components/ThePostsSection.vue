@@ -5,7 +5,7 @@
         Últimas noticias
       </p>
       <div class="w-full flex flex-wrap justify-center lg:justify-between items-center mx-auto">
-        <div v-for="(post, i) in lista" :key="i" class="w-full md:w-1/2 lg:w-1/3 flex justify-center items-center">
+        <div v-for="(post, i) in lista.slice(0,3)" :key="i" class="w-full md:w-1/2 lg:w-1/3 flex justify-center items-center">
           <post-preview
             :title="post.title"
             :time="post.time"
