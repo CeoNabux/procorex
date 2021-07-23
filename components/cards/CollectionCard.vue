@@ -1,12 +1,14 @@
 <template>
-  <div class="w-full mx-auto border border-gray-200 shadow-md">
-    <figure class="w-full flex justify-center items-center">
-      <img :src='image' alt="collection-product">
-    </figure>
-    <p class="text-blue-900 font-semibold text-lg">
-      {{ title }}
-    </p>
-  </div>
+  <a :href="`catalogos/${id}`">
+    <div class="w-full mx-auto border border-gray-200 shadow-md">
+      <figure class="w-full flex justify-center items-center">
+        <img :src="image" alt="collection-product" />
+      </figure>
+      <p class="text-blue-900 font-semibold text-lg">
+        {{ title }}
+      </p>
+    </div>
+  </a>
 </template>
 
 <script>
@@ -20,6 +22,10 @@ export default {
       type: String,
       required: true
     },
+    id: {
+      type: String,
+      required: true
+    },
   }
-}
+};
 </script>
