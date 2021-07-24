@@ -1,6 +1,6 @@
 <template>
   <a :href="`catalogos/${id}`">
-    <div class="w-full mx-auto border border-gray-200 shadow-md">
+    <div class="w-full mx-auto border border-gray-200 shadow-md px-4">
       <figure class="w-full flex justify-center items-center">
         <img :src="image" alt="collection-product" />
       </figure>

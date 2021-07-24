@@ -12,7 +12,7 @@
       <pdf
         v-if="file"
         class="border border-red-500"
-        :src="file"
+        :src="local"
         ref="pdf"
         :page="page"
         :rotate="rotate"
@@ -33,7 +33,8 @@ export default {
     loadedRatio: 0,
     page: 1,
     numPage: 0,
-    rotate: 0
+    rotate: 0,
+    local: "http://localhost:3000/assets/pdf/linea-de-productos.pdf"
   }),
   asyncData(context) {
     return context.app.$storyapi
@@ -42,13 +43,14 @@ export default {
       })
       .then(res => {
         console.log(res);
+        console.log(res.data.story.content.archivo.filename)
         return {
           image: res.data.story.content.image.filename,
           title: res.data.story.content.title,
           file: res.data.story.content.archivo.filename,
           description: res.data.story.description
         };
-      });
+      })
   },
   methods: {
     password: function(updatePassword, reason) {
