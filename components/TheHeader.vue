@@ -90,7 +90,7 @@ export default {
     isMessageActive:false,
     menu: [
       { name: 'Home', path: '/'},
-      { name: 'Productos', path: '/products'},
+      { name: 'Productos', path: '/productos'},
       { name: 'Catálogos', path: '/catalogos'},
       { name: 'Blog', path: '/blog'},
       { name: 'Quiénes somos', path: '/procorex'},
