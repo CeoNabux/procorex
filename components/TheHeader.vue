@@ -93,7 +93,6 @@ export default {
       { name: 'Productos', path: '/productos'},
       { name: 'Catálogos', path: '/catalogos'},
       { name: 'Blog', path: '/blog'},
-      { name: 'Quiénes somos', path: '/procorex'},
       { name: 'Contáctanos', path: '/contact'},
     ]
   }),
