@@ -1,10 +1,10 @@
 <template>
   <div class="w-full">
     <div
-      class="w-full relative py-4 px-2 bg-image"
+      class="w-full relative py-4 px-2 bg-image flex"
       :style="{ backgroundImage: 'url(' + bgImage + ')' }"
     >
-      <div class="w-full flex p-2 justify-center">
+      <div class="w-full flex p-2 justify-center max-w-screen-2xl mx-auto">
         <div class="container w-full flex flex-col justify-between items-center lg:items-start lg:w-3/5">
           <h2
             class="text-blue-700 text-5xl font-semibold mt-8 w-full lg:w-4/5 mb-2 text-center lg:text-left"
