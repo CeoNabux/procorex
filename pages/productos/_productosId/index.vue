@@ -21,7 +21,7 @@
           <p class="text-lg font-light text-gray-500">
             Presentación: {{ presentation }}
           </p>
-          <button class="w-full bg-green-600 flex justify-center items-center rounded-lg py-2 mt-4">
+          <button class="w-full bg-green-600 flex justify-center items-center rounded-lg py-2 mt-4" @click="redirection" >
             <p class="text-sm font-semibold text-white">
               Pidelo por WhatsApp
             </p>
@@ -63,6 +63,11 @@ export default {
           presentation: res.data.story.content.presentation,
         };
       });
+  },
+  methods: {
+    redirection() {
+      window.open(`https://api.whatsapp.com/send?phone=593996525883&text=%F0%9F%98%80%20Hola!%20vengo%20de%20su%20web%20y%20quisiera%20saber%20m%C3%A1s%20sobre%20+${this.title}`)
+    }
   }
 };
 </script>
