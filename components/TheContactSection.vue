@@ -1,6 +1,6 @@
 <template>
   <div class="w-full bg-gray-100 mt-16 py-16 px-12">
-    <div class="max-w-screen-xl flex flex-wrap justify-between items-center">
+    <div class="max-w-screen-xl mx-auto flex flex-wrap justify-between items-center">
       <figure class="w-full lg:w-2/5 flex justify-center items-center mb-16 lg:mb-0">
         <img src="@/assets/logos/procorex-imagotipo.png" alt="logo-procorex" class="w-1/5 lg:w-2/5">
       </figure>

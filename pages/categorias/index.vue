@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-auto max-w-screen-xl">
     Esta es la pagina de las categorias
   </div>
 </template>
