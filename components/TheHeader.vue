@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div class="bg-yellow-300" :class="{['hidden']:isMessageActive}">
-      <div class="max-w-screen-xl flex justify-between items-center px-4 py-1">
+    <div class="bg-yellow-300 w-full" :class="{ ['hidden']: isMessageActive }">
+      <div class="max-w-screen-xl mx-auto flex justify-between items-center px-4 py-1">
         <p class="text-yellow-600 font-semibold text-sm">
-          Sabemos que el COVID-19 ha sido complicado, es por eso que la familia de Procorex te acompaña para ayudarte en tus soluciones
+          Sabemos que el COVID-19 ha sido complicado, es por eso que la familia
+          de Procorex te acompaña para ayudarte en tus soluciones
         </p>
-        <button class="w-5 h-5 focus:outline-none" @click='closeMessage'>
-          <p-icon name='close' class="text-yellow-600" />
+        <button class="w-5 h-5 focus:outline-none" @click="closeMessage">
+          <p-icon name="close" class="text-yellow-600" />
         </button>
       </div>
     </div>
@@ -15,13 +16,15 @@
       <div class="max-w-screen-xl mx-auto px-2 flex flex-col">
         <!-- PRIMERA SECCION DEL HEADER PARA EMPRESA Y FILTROS -->
         <div class="w-full flex justify-between items-center">
-          <figure class="w-44 ml-3">
-            <img
-              class="logo-filtered"
-              src="@/assets/logos/logo-procorex-negro.png"
-              alt="logo-procorex"
-            />
-          </figure>
+          <nuxt-link to="/">
+            <figure class="w-44 ml-3">
+              <img
+                class="logo-filtered"
+                src="@/assets/logos/logo-procorex-negro.png"
+                alt="logo-procorex"
+              />
+            </figure>
+          </nuxt-link>
           <div class="flex items-center justify-end w-3/5 menu">
             <div class="flex justify-start items-center mr-4">
               <p class="text-blue-100 font-light mr-2">¿Necesitas ayuda?</p>
@@ -31,12 +34,14 @@
               class="w-60 shadow rounded-xl h-11 flex justify-between items-center bg-blue-200 focus:bg-gray-50 px-4"
             >
               <button class="w-7 h-7 focus:outline-none">
-                <p-icon name='search' class="text-blue-300" />
+                <p-icon name="search" class="text-blue-300" />
               </button>
               <input type="text" class="bg-blue-200" />
             </div>
           </div>
-          <button class="w-8 h-8 p-1 shadow-md rounded-full bg-blue-200 menu-button">
+          <button
+            class="w-8 h-8 p-1 shadow-md rounded-full bg-blue-200 menu-button"
+          >
             <p-icon name="search" class="text-blue-300"></p-icon>
           </button>
         </div>
@@ -87,20 +92,20 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   components: { PIcon },
   data: () => ({
-    isMessageActive:false,
+    isMessageActive: false,
     menu: [
-      { name: 'Home', path: '/'},
-      { name: 'Productos', path: '/productos'},
-      { name: 'Catálogos', path: '/catalogos'},
-      { name: 'Blog', path: '/blog'},
-      { name: 'Contáctanos', path: '/contact'},
+      { name: "Home", path: "/" },
+      { name: "Productos", path: "/productos" },
+      { name: "Catálogos", path: "/catalogos" },
+      { name: "Blog", path: "/blog" },
+      { name: "Contáctanos", path: "/contact" }
     ]
   }),
   computed: {
     ...mapGetters("config_drawer", ["show"])
   },
   mounted() {
-    this.autoClose()
+    this.autoClose();
   },
   methods: {
     ...mapActions("config_drawer", ["activeMenu"]),
@@ -117,13 +122,13 @@ export default {
       }
     },
     autoClose() {
-      setTimeout( () => {
-        this.closeMessage()
-      }, 5000)
+      setTimeout(() => {
+        this.closeMessage();
+      }, 5000);
     },
     closeMessage() {
       if (!this.isMessageActive) {
-        return this.isMessageActive=true
+        return (this.isMessageActive = true);
       }
     }
   }
@@ -147,7 +152,7 @@ export default {
     display: flex;
   }
   .mobile-menu {
-    @apply fixed bottom-0 right-0 left-0 py-2 border-t border-blue-800
+    @apply fixed bottom-0 right-0 left-0 py-2 border-t border-blue-800;
   }
 }
 </style>
