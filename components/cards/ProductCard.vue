@@ -6,14 +6,14 @@
         <img :src="image" alt="tool" srcset="">
       </figure>
       <p class="text-blue-900 font-medium text-lg">
-        Atornillador inalámbrico
+        {{ title }}
       </p>
       <p class="text-blue-900 font-light font-sm">
-        Black N Decker DE 4.8 V
+        {{ description }}
       </p>
       <div class="w-full mt-4 flex justify-center items-center">
         <div class="w-1/2 h-12">
-          <p-button name="Pedir" class="aparecer h-12 bg-yellow-500 text-white text-base" />
+          <p-button name="Pedir" class="aparecer h-12 bg-yellow-500 text-white text-base" @click="redirection(id)" />
         </div>
       </div>
     </div>
@@ -22,9 +22,29 @@
 
 <script>
 export default {
-  data: () => ({
-    image: require("@/assets/general/atornillador.png")
-  })
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    id: {
+      type: String,
+      required: true
+    },
+  },
+  methods: {
+    redirection() {
+      this.$router.push(`/productos/${this.id}`)
+    }
+  }
 }
 </script>
 

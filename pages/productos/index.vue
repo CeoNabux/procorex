@@ -17,11 +17,14 @@
         <div
           class="w-full px-2 flex flex-wrap justify-between mx-auto py-4"
         >
-          <product-card />
-          <product-card />
-          <product-card />
-          <product-card />
-          <product-card />
+          <div v-for="(item, i) in productos" :key="i">
+            <product-card
+              :title="item.title"
+              :image="item.image"
+              :id="item.id"
+              :description="item.description"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -44,12 +47,12 @@ export default {
       .then(res => {
         console.log(res);
         return {
-          catalogos: res.data.stories.map(ct => {
+          productos: res.data.stories.map(ct => {
             return {
               id: ct.slug,
               title: ct.content.title,
               image: ct.content.image.filename,
-              categoria: ct.content.categorias
+              description: ct.content.description.slice(0, 40)
             };
           })
         };
