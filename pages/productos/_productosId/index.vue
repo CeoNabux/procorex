@@ -6,17 +6,19 @@
           <img :src="image" alt="tool" />
         </figure>
         <div class="flex flex-col w-ful lg:w-2/5">
-          <p class="text-4xl font-semibold text-blue-900">
+          <p class="text-6xl font-semibold text-blue-900">
             {{ title }}
           </p>
           <p class="text-sm text-gray-400 font-medium mt-4">
             {{ description }}
           </p>
-          <div class="flex flex-wrap my-8">
+          <div class="border border-gray-50 w-full h-px my-12" />
+          <div class="flex flex-wrap my-4">
             <sb-rich-text :text="aplication" />
           </div>
+          <div class="border border-gray-50 w-full h-px my-16" />
           <p class="text-2xl font-bold text-yellow-600 py-4">
-            $ 100
+            $ {{ precio }}
           </p>
           <p class="text-lg font-light text-gray-500">
             Presentación: {{ presentation }}
@@ -55,12 +57,14 @@ export default {
         version: process.env.NODE_ENV == "production" ? "published" : "draft"
       })
       .then(res => {
+        console.log(res)
         return {
           image: res.data.story.content.image.filename,
           title: res.data.story.content.title,
           aplication: res.data.story.content.aplication,
           description: res.data.story.content.description,
           presentation: res.data.story.content.presentation,
+          precio: res.data.story.content.precio
         };
       });
   },

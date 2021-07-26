@@ -59,13 +59,13 @@
             />
           </div>
         </div>
-        <w-full class="flex justify-center items-center mt-8">
+        <div class="w-full flex justify-center items-center mt-8">
           <p-button
             name="Enviar mensaje"
             class="bg-yellow-600 h-10 text-white"
             @click.prevent="sendMail"
           />
-        </w-full>
+        </div>
       </div>
     </form>
   </div>
