@@ -1,7 +1,7 @@
 <template>
   <div>
     <the-hero />
-    <the-discounts :list="list" />
+    <the-discounts :list="discounts" />
     <the-categories />
     <the-products :productos='products' />
     <the-posts-section :lista='posts' />
@@ -11,13 +11,7 @@
 <script>
 export default {
   data: () => ({
-    list: [
-      {
-        bgImage: require("@/assets/general/llaves-no-exif-tinified.jpg"),
-        title: 'Taladro marcar Proto m-8000',
-        discount: '10'
-      }
-    ],
+    discounts: [],
     products: [],
     posts: [],
   }),
@@ -47,7 +41,13 @@ export default {
         id: post.content.title,
         description: post.content.description
       }
-    }), discounts: discounts.data.stories }
+    }), discounts: discounts.data.stories.map((discount) => {
+      return {
+        title: discount.content.name,
+        bgImage: discount.content.imagen.filename,
+        discount: discount.content.porcentage
+      }
+    }) }
   },
 }
 </script>
