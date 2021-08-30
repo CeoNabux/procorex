@@ -25,7 +25,7 @@ export default {
     })
     const discounts = await app.$storyapi.get('cdn/stories', {
       starts_with: 'discounts'
-    }),
+    })
     const home = await app.$storyapi.get('cdn/stories', {
       starts_with: 'home'
     })
