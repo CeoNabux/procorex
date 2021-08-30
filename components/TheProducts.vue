@@ -5,7 +5,7 @@
         Últimos productos
       </p>
       <div class="w-full px-2 overflow-x-scroll flex justify-between mx-auto py-4">
-        <div v-for="(item, i) in productos" :key="i">
+        <div v-for="(item, i) in productos.slice(0, 5)" :key="i">
             <product-card
               :title="item.title"
               :image="item.image"
