@@ -14,6 +14,7 @@ export default {
     discounts: [],
     products: [],
     posts: [],
+    heroSlides: []
   }),
   async asyncData({ app }) {
     const products = await app.$storyapi.get('cdn/stories', {
@@ -24,8 +25,10 @@ export default {
     })
     const discounts = await app.$storyapi.get('cdn/stories', {
       starts_with: 'discounts'
+    }),
+    const home = await app.$storyapi.get('cdn/stories', {
+      starts_with: 'home'
     })
-    console.log(products.data.stories, posts.data.stories)
     return { products: products.data.stories.map((pr) => {
       return {
         title: pr.content.title,
@@ -47,7 +50,13 @@ export default {
         bgImage: discount.content.imagen.filename,
         discount: discount.content.porcentage
       }
-    }) }
+    }), heroSlides: home.data.stories.map((slide) => {
+      return {
+        slideImages: slide.content.heroImages.map((image) => image.filename),
+        title1: slide.content.slideTitle1
+      }
+    })
+    }
   },
 }
 </script>
