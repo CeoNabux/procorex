@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import ProductCard from "@/components/cards/ProductCard.vue";
 
 export default {
@@ -73,26 +73,16 @@ export default {
     };
   },
   methods: {
-    async productsByCategory(item) {
-      const productos = await this.$storyapi.get("cdn/stories", {
+    ...mapActions('getProducts', ['fetchProductsByCategory']),
+    productsByCategory(item) {
+      this.fetchProductsByCategory({
         starts_with: "productos/",
         filter_query: {
           categorias: {
             all_in_array: item
           }
         }
-      });
-      return {
-        productos: productos.data.stories.map(producto => {
-          return {
-            id: producto.content.title,
-            title: producto.content.title,
-            image: producto.content.image.filename,
-            categoria: producto.content.categorias,
-            description: producto.content.description.slice(0, 40)
-          };
-        })
-      };
+      })
     },
     refresh() {
       this.$nuxt.refresh()
