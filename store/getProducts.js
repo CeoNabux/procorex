@@ -11,6 +11,7 @@ export const getters = {
 
 export const mutations = {
   async SET_PRODUCTS(state, productos) {
+    console.log(productos)
     return state.productos = productos
   }
 }
@@ -21,9 +22,8 @@ export const actions = {
       version: context.version,
       starts_with: context.starts_with
     })
-    console.log(productos)
-    return {
-      productos: productos.data.stories.map((producto) => {
+    commit("SET_PRODUCTS",
+      productos.data.stories.map((producto) => {
         return {
           id: producto.slug,
           title: producto.content.title,
@@ -32,6 +32,6 @@ export const actions = {
           description: producto.content.description.slice(0, 40)
         }
       })
-    }
+    );
   }
 }

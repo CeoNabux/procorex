@@ -27,7 +27,7 @@
       </div>
       <!-- AQUI VA LA SECCIONH DE PRODUCTOS -->
       <div class="w-full lg:w-4/5">
-        <div v-if="!getProductos" class="w-full px-2 flex flex-wrap justify-between mx-auto py-4">
+        <div v-if="getProductos" class="w-full px-2 flex flex-wrap justify-between mx-auto py-4">
           <div v-for="(item, i) in getProductos" :key="i" class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3">
             <product-card
               :title="item.title"
