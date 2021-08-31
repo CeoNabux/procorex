@@ -29,12 +29,13 @@ export default {
     const home = await app.$storyapi.get('cdn/stories', {
       starts_with: 'home'
     })
-    return { products: products.data.stories.map((pr) => {
+    return { products: products.data.stories.map((producto) => {
       return {
-        title: pr.content.title,
-        image: pr.content.image.filename,
-        id: pr.content.title,
-        description: pr.content.description
+        id: producto.content.title,
+        title: producto.content.title,
+        image: producto.content.image.filename,
+        categoria: producto.content.categorias,
+        description: producto.content.description.slice(0, 40)
       }
     }), posts: posts.data.stories.map((post)=> {
       return {

@@ -18,7 +18,7 @@
           <button
             v-for="(categoria, i) in categorias"
             :key="i"
-            class="text-gray-400 font-semibold text-lg mb-2"
+            class="text-gray-400 font-semibold text- mb-2"
             @click="productsByCategory(categoria.uid)"
           >
             <p class="w-full text-left">{{ categoria.categoria }}</p>
@@ -27,8 +27,8 @@
       </div>
       <!-- AQUI VA LA SECCIONH DE PRODUCTOS -->
       <div class="w-full lg:w-4/5">
-        <div class="w-full px-2 flex flex-wrap justify-between mx-auto py-4">
-          <div v-for="(item, i) in productos" :key="i" class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3">
+        <div v-if="!getProductos" class="w-full px-2 flex flex-wrap justify-between mx-auto py-4">
+          <div v-for="(item, i) in getProductos" :key="i" class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3">
             <product-card
               :title="item.title"
               :image="item.image"
@@ -43,28 +43,25 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ProductCard from "@/components/cards/ProductCard.vue";
 
 export default {
   components: {
     ProductCard
   },
-  async asyncData({ app }) {
-    const productos = await app.$storyapi.get("cdn/stories", {
-      starts_with: "productos/"
-    });
+  computed: {
+    ...mapGetters('getProducts', ['getProductos'])
+  },
+  async asyncData({ app, store }) {
     const categorias = await app.$storyapi.get("cdn/stories", {
       starts_with: "categorias/"
     });
+    store.dispatch('getProducts/fetchProducts', {
+      starts_with: 'productos/',
+      version: 'published'
+    })
     return {
-      productos: productos.data.stories.map(pr => {
-        return {
-          id: pr.slug,
-          title: pr.content.title,
-          image: pr.content.image.filename,
-          description: pr.content.description.slice(0, 40)
-        };
-      }),
       categorias: categorias.data.stories.map(categoria => {
         return {
           categoria:
@@ -88,7 +85,7 @@ export default {
       return {
         productos: productos.data.stories.map(producto => {
           return {
-            id: producto.slug,
+            id: producto.content.title,
             title: producto.content.title,
             image: producto.content.image.filename,
             categoria: producto.content.categorias,
