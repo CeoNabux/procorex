@@ -12,13 +12,14 @@
           <div class="w-6 h-6">
             <p-icon name="filter" class="text-blue-900" />
           </div>
+          <button @click="refresh">refresca</button>
         </div>
         <div class="flex flex-col w-full">
           <button
             v-for="(categoria, i) in categorias"
             :key="i"
             class="text-gray-400 font-semibold text-lg mb-2"
-            @click="filtroPorCategoria"
+            @click="productsByCategory(categoria.uid)"
           >
             <p class="w-full text-left">{{ categoria.categoria }}</p>
           </button>
@@ -61,20 +62,43 @@ export default {
           id: pr.slug,
           title: pr.content.title,
           image: pr.content.image.filename,
-          categoria: pr.content.categorias,
           description: pr.content.description.slice(0, 40)
         };
       }),
       categorias: categorias.data.stories.map(categoria => {
         return {
-          categoria: categoria.content.name.charAt(0).toUpperCase() + categoria.content.name.slice(1)
+          categoria:
+            categoria.content.name.charAt(0).toUpperCase() +
+            categoria.content.name.slice(1),
+          uid: categoria.uuid
         };
       })
     };
   },
   methods: {
-    filtroPorCategoria() {
-      console.log(this.categoria.categoria)
+    async productsByCategory(item) {
+      const productos = await this.$storyapi.get("cdn/stories", {
+        starts_with: "productos/",
+        filter_query: {
+          categorias: {
+            all_in_array: item
+          }
+        }
+      });
+      return {
+        productos: productos.data.stories.map(producto => {
+          return {
+            id: producto.slug,
+            title: producto.content.title,
+            image: producto.content.image.filename,
+            categoria: producto.content.categorias,
+            description: producto.content.description.slice(0, 40)
+          };
+        })
+      };
+    },
+    refresh() {
+      this.$nuxt.refresh()
     }
   }
 };
