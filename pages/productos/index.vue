@@ -12,7 +12,6 @@
           <div class="w-6 h-6">
             <p-icon name="filter" class="text-blue-900" />
           </div>
-          <button @click="refresh">refresca</button>
         </div>
         <div class="flex flex-col w-full">
           <button
@@ -27,7 +26,10 @@
       </div>
       <!-- AQUI VA LA SECCIONH DE PRODUCTOS -->
       <div class="w-full lg:w-4/5">
-        <div v-if="getProductos" class="w-full px-2 flex flex-wrap justify-between mx-auto py-4">
+        <div class="w-full flex justify-center items-center">
+          <loader :loading="isLoading" />
+        </div>
+        <div v-if="!isLoading" class="w-full px-2 flex flex-wrap justify-between mx-auto py-4">
           <div v-for="(item, i) in getProductos" :key="i" class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3">
             <product-card
               :title="item.title"
@@ -48,8 +50,11 @@ import ProductCard from "@/components/cards/ProductCard.vue";
 
 export default {
   components: {
-    ProductCard
+    ProductCard,
   },
+  data: () => ({
+    isLoading: false
+  }),
   computed: {
     ...mapGetters('getProducts', ['getProductos'])
   },
@@ -70,11 +75,12 @@ export default {
           uid: categoria.uuid
         };
       })
-    };
+    }
   },
   methods: {
     ...mapActions('getProducts', ['fetchProductsByCategory']),
     productsByCategory(item) {
+      this.isLoading=true
       this.fetchProductsByCategory({
         starts_with: "productos/",
         filter_query: {
@@ -82,11 +88,8 @@ export default {
             all_in_array: item
           }
         }
-      })
+      }).finally(() => this.isLoading = false)
     },
-    refresh() {
-      this.$nuxt.refresh()
-    }
   }
 };
 </script>

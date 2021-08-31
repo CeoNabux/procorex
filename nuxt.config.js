@@ -30,6 +30,7 @@ export default {
   plugins: [
     "~/plugins/clickaway.js",
     "~/plugins/composition-api.js",
+    "~/plugins/VueWait.js",
     "~/plugins/rich-text-renderer.js",
     "~/plugins/map.js",
     { src: "~/plugins/vue-pdf.js", ssr: false},
@@ -51,7 +52,7 @@ export default {
         accessToken: "wTWl6mVTgNNdks4rUtxOrAtt",
         cacheProvider: "memory"
       }
-    ]
+    ],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
