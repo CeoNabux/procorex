@@ -3,7 +3,7 @@
     <h2 class="max-w-screen-xl text-5xl font-bold text-blue-900 w-full my-16">
       Productos
     </h2>
-    <div class="max-w-screen-xl flex justiy-between items-start w-full">
+    <div class="max-w-screen-xl flex flex-wrap justify-between items-start w-full px-2">
       <div class="w-full lg:w-1/5">
         <div class="flex flex-start align-items mb-4">
           <p class="text-blue-900 text-base mr-2">
@@ -28,7 +28,7 @@
       <!-- AQUI VA LA SECCIONH DE PRODUCTOS -->
       <div class="w-full lg:w-4/5">
         <div class="w-full px-2 flex flex-wrap justify-between mx-auto py-4">
-          <div v-for="(item, i) in productos" :key="i">
+          <div v-for="(item, i) in productos" :key="i" class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3">
             <product-card
               :title="item.title"
               :image="item.image"
