@@ -11,7 +11,6 @@ export const getters = {
 
 export const mutations = {
   async SET_PRODUCTS(state, productos) {
-    console.log(productos)
     return state.productos = productos
   }
 }
