@@ -3,7 +3,7 @@
     <div class="w-full relative">
       <span class="bg-yellow-500 absolute top-0 px-2 py-1 text-base text-white rounded-xl">Venta</span>
       <figure class="w-full my-1 p-2">
-        <img :src="image" alt="tool" srcset="">
+        <img loading='lazy' :src="image" alt="tool" srcset="">
       </figure>
       <p class="text-blue-900 font-medium text-lg">
         {{ title }}
