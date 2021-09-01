@@ -2,7 +2,7 @@
   <div>
     <the-hero />
     <the-discounts :list="discounts" />
-    <the-categories />
+    <the-catalogues :array='catalogos' />
     <the-products :productos='products' />
     <the-posts-section :lista='posts' />
   </div>
@@ -26,8 +26,8 @@ export default {
     const discounts = await app.$storyapi.get('cdn/stories', {
       starts_with: 'discounts'
     })
-    const home = await app.$storyapi.get('cdn/stories', {
-      starts_with: 'home'
+    const catalogos = await app.$storyapi.get('cdn/stories', {
+      starts_with: 'catalogos/'
     })
     return { products: products.data.stories.map((producto) => {
       return {
@@ -51,10 +51,11 @@ export default {
         bgImage: discount.content.imagen.filename,
         discount: discount.content.porcentage
       }
-    }), heroSlides: home.data.stories.map((slide) => {
+    }), catalogos: catalogos.data.stories.map((catalogo) => {
       return {
-        slideImages: slide.content.heroImages.map((image) => image.filename),
-        title1: slide.content.slideTitle1
+        bgImage: catalogo.content.image.filename,
+        link: catalogo.content.archivo.url,
+        title: catalogo.content.title
       }
     })
     }
