@@ -9,6 +9,11 @@
           <catalogue-card :bgImage='item.bgImage' :title='item.title' :link='item.link' />
         </div>
       </div>
+      <div class="flex mt-16 justify-center items-center">
+        <button class="h-20 bg-yellow-500 text-lg font-semibold text-white px-6 py-3 rounded-md" @click="redirection">
+          Ver Catálogos
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +28,11 @@ export default {
     array: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    redirection() {
+      this.$router.push('/catalogos/')
     }
   }
 }
