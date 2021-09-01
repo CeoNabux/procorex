@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full max-w-screen-xl mt-16 mx-auto">
+  <div class="w-full max-w-screen-xl mt-24 mx-auto">
     <div class="w-full flex flex-col justify-center items-center mx-auto">
       <p class=" mx-auto text-4xl text-blue-900 font-bold mb-6">
         Últimos productos
       </p>
       <div class="w-full px-2 overflow-x-scroll flex justify-between mx-auto py-4">
-        <div v-for="(item, i) in productos.slice(0, 5)" :key="i">
+        <div class="flex flex-1 items-end" v-for="(item, i) in productos.slice(0, 5)" :key="i">
             <product-card
               :title="item.title"
               :image="item.image"
