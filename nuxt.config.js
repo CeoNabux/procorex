@@ -33,7 +33,6 @@ export default {
     "~/plugins/VueWait.js",
     "~/plugins/rich-text-renderer.js",
     "~/plugins/map.js",
-    { src: "~/plugins/vue-pdf.js", ssr: false},
     { src: "~/plugins/google-maps.js", ssr: false }
   ],
 
@@ -56,17 +55,7 @@ export default {
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    extend(config, ctx) {
-      config.output.globalObject = "this"
-      config.module.rules.push(
-        {
-          test: /\.pdf$/,
-          loader: "url-loader"
-        }
-      )
-    }
-  },
+  build: {},
   env: {
     GOOGLE_MAPS: "AIzaSyBQc4P1XMeB7jtTzLzSXpdYv-C5CVjd1-c"
   }
