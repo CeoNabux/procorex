@@ -5,18 +5,18 @@
     </h2>
     <div class="max-w-screen-xl w-full flex flex-wrap justify-center items-center mt-10">
       <div v-for="(item, i) in catalogos" :key="i" class="flex justify-center items-center w-full md:w-1/3 lg:w-1/5 p-2">
-        <collection-card :title="item.title" :image="item.image" :id="item.id" />
+        <catalogue-card :title="item.title" :bgImage="item.bgImage" :link="item.id" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CollectionCard from "@/components/cards/CollectionCard.vue"
+import CatalogueCard from "@/components/cards/CatalogueCard.vue"
 
 export default {
   components: {
-    CollectionCard
+    CatalogueCard
   },
   asyncData(context) {
     return context.app.$storyapi
@@ -25,13 +25,12 @@ export default {
         starts_with: 'catalogos/'
       })
       .then(res => {
-        console.log(res)
         return {
           catalogos: res.data.stories.map(ct => {
             return {
-              id: ct.slug,
+              id: ct.content.archivo.url,
               title: ct.content.title,
-              image: ct.content.image.filename,
+              bgImage: ct.content.image.filename,
             }
         })}
       })
