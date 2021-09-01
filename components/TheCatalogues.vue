@@ -5,9 +5,9 @@
         Chequea nuestro catálogo
       </p>
       <div class="w-full flex justify-center items-center">
-        <loader :loading="isLoading" />
+        <loader :loading="isLoadingCatalogues" />
       </div>
-      <div v-if="!isLoading" class="w-full flex flex-wrap justify-center lg:justify-between items-center mx-auto">
+      <div v-if="!isLoadingCatalogues" class="w-full flex flex-wrap justify-center lg:justify-between items-center mx-auto">
         <div v-for="(item, i) in array" :key="i" class="w-full px-2 lg:w-1/2 lg:px-0">
           <catalogue-card :bgImage='item.bgImage' :title='item.title' :link='item.link' />
         </div>
@@ -28,7 +28,7 @@ export default {
     CatalogueCard
   },
   data: () => ({
-    isLoading: false
+    isLoadingCatalogues: false
   }),
   props: {
     array: {
@@ -39,9 +39,9 @@ export default {
   computed: {
     loaded() {
       if (!this.array.length) {
-        return (this.isLoading = true);
+        return (this.isLoadingCatalogues = true);
       } else {
-        return (this.isLoading = false);
+        return (this.isLoadingCatalogues = false);
       }
     }
   },
