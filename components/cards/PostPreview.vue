@@ -1,5 +1,5 @@
 <template>
-  <a :href="`blog/${id}`" class="w-72 h-80 shadow-lg bg-image rounded-md" :style="{backgroundImage: 'url(' + image + ')'}">
+  <nuxt-link :to="`blog/${id}`" class="w-72 h-80 shadow-lg bg-image rounded-md" :style="{backgroundImage: 'url(' + image + ')'}">
     <div class="w-full h-full flex flex-col justify-between bg-gradient-to-tl from-indigo-900">
       <div class="py-2 px-3 my-4 mx-2 lg:m-1 w-full h-full flex flex-col justify-between ">
         <p class="font-semibold text-gray-50 text-right">
@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-  </a>
+  </nuxt-link>
 </template>
 
 <script>
