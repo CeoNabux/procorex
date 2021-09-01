@@ -4,7 +4,10 @@
       <p class=" mx-auto text-4xl text-blue-900 font-bold mb-10">
         Chequea nuestro catálogo
       </p>
-      <div class="w-full flex flex-wrap justify-center lg:justify-between items-center mx-auto">
+      <div class="w-full flex justify-center items-center">
+        <loader :loading="isLoading" />
+      </div>
+      <div v-if="!isLoading" class="w-full flex flex-wrap justify-center lg:justify-between items-center mx-auto">
         <div v-for="(item, i) in array" :key="i" class="w-full px-2 lg:w-1/2 lg:px-0">
           <catalogue-card :bgImage='item.bgImage' :title='item.title' :link='item.link' />
         </div>
@@ -24,10 +27,22 @@ export default {
   components: {
     CatalogueCard
   },
+  data: () => ({
+    isLoading: false
+  }),
   props: {
     array: {
       type: Array,
       required: true
+    }
+  },
+  computed: {
+    loaded() {
+      if (!this.array.length) {
+        return (this.isLoading = true);
+      } else {
+        return (this.isLoading = false);
+      }
     }
   },
   methods: {
