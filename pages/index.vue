@@ -4,7 +4,7 @@
     <the-discounts :list="getDiscounts" />
     <the-catalogues :array="getCatalogos" />
     <the-products :productos="getProductos" />
-    <the-posts-section :lista="posts" />
+    <the-posts-section :lista="getPosts" />
   </div>
 </template>
 
