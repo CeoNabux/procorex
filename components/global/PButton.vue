@@ -1,5 +1,5 @@
 <template>
-  <button class="w-full text-xl rounded-xl font-semibold text-blue-600" @click="$emit('click', $event)">
+  <button class="w-full text-xl rounded-xl font-semibold text-white" @click="$emit('click', $event)">
     {{name}}
   </button>
 </template>
