@@ -1,64 +1,62 @@
 <template>
   <div>
     <the-hero />
-    <the-discounts :list="discounts" />
-    <the-catalogues :array='catalogos' />
-    <the-products :productos='products' />
-    <the-posts-section :lista='posts' />
+    <div class="w-full flex justify-center items-center">
+      <loader :loading="isLoading" />
+    </div>
+    <the-discounts :list="getDiscounts" />
+    <the-catalogues :array="getCatalogos" />
+    <the-products v-if="!isLoading" :productos="getProductos" />
+    <the-posts-section :lista="getPosts" />
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data: () => ({
-    discounts: [],
-    products: [],
+    isLoading: false,
+    catalogos: [],
+    productos: [],
     posts: [],
-    heroSlides: []
+    discounts: []
   }),
-  async asyncData({ app }) {
-    const products = await app.$storyapi.get('cdn/stories', {
-      starts_with: 'productos/'
-    })
-    const posts = await app.$storyapi.get('cdn/stories', {
-      starts_with: 'blog/'
-    })
-    const discounts = await app.$storyapi.get('cdn/stories', {
-      starts_with: 'discounts'
-    })
-    const catalogos = await app.$storyapi.get('cdn/stories', {
-      starts_with: 'catalogos/'
-    })
-    return { products: products.data.stories.map((producto) => {
-      return {
-        id: producto.content.title,
-        title: producto.content.title,
-        image: producto.content.image.filename,
-        categoria: producto.content.categorias,
-        description: producto.content.description.slice(0, 40)
-      }
-    }), posts: posts.data.stories.map((post)=> {
-      return {
-        title: post.content.title,
-        image: post.content.image.filename,
-        time: post.published_at,
-        id: post.content.title,
-        description: post.content.description
-      }
-    }), discounts: discounts.data.stories.map((discount) => {
-      return {
-        title: discount.content.name,
-        bgImage: discount.content.imagen.filename,
-        discount: discount.content.porcentage
-      }
-    }), catalogos: catalogos.data.stories.map((catalogo) => {
-      return {
-        bgImage: catalogo.content.image.filename,
-        link: catalogo.content.archivo.url,
-        title: catalogo.content.title
-      }
-    })
-    }
+  computed: {
+    ...mapGetters('getProducts', ['getProductos', 'getPosts', 'getCatalogos', 'getDiscounts'])
   },
-}
+  mounted() {
+    this.loadProducts()
+    this.loadDiscounts()
+    this.loadPosts()
+    this.loadCatalogues()
+  },
+  methods: {
+    ...mapActions('getProducts', ['fetchProducts', 'fetchCatalogues', 'fetchDiscounts', 'fetchPosts']),
+    loadProducts() {
+      this.fetchProducts({
+        starts_with: 'productos',
+        version: 'published'
+      })
+    },
+    loadDiscounts() {
+      this.fetchDiscounts({
+        starts_with: 'discounts',
+        version: 'published'
+      })
+    },
+    loadPosts() {
+      this.fetchPosts({
+        starts_with: 'blog/',
+        version: 'published'
+      })
+    },
+    loadCatalogues() {
+      this.isLoading = true;
+      this.fetchCatalogues({
+        starts_with: 'catalogos/',
+        version: 'published'
+      }).finally(() => this.isLoading = false)
+    },
+  }
+};
 </script>
