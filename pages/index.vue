@@ -1,12 +1,9 @@
 <template>
   <div>
     <the-hero />
-    <div class="w-full flex justify-center items-center">
-      <loader :loading="isLoading" />
-    </div>
     <the-discounts :list="getDiscounts" />
     <the-catalogues :array="getCatalogos" />
-    <the-products v-if="!isLoading" :productos="getProductos" />
+    <the-products :productos="getProductos" />
     <the-posts-section :lista="getPosts" />
   </div>
 </template>
@@ -15,7 +12,6 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   data: () => ({
-    isLoading: false,
     catalogos: [],
     productos: [],
     posts: [],
@@ -51,11 +47,10 @@ export default {
       })
     },
     loadCatalogues() {
-      this.isLoading = true;
       this.fetchCatalogues({
         starts_with: 'catalogos/',
         version: 'published'
-      }).finally(() => this.isLoading = false)
+      })
     },
   }
 };
