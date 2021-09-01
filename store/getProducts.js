@@ -117,7 +117,7 @@ export const actions = {
           title: post.content.title,
           image: post.content.image.filename,
           time: post.published_at,
-          id: post.content.title,
+          id: post.slug,
           description: post.content.description
         };
       })
