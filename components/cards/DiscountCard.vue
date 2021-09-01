@@ -4,8 +4,8 @@
       class="w-full bg-image rounded-md shadow-md"
       :style="{ backgroundImage: 'url(' + bgImage + ')' }"
     >
-      <div class="grid grid-cols-3 grid-rows-1 py-2">
-        <div class="flex justify-start flex-col col-start-1 col-span-2 p-1">
+      <div class="grid grid-cols-5 grid-rows-2">
+        <div class="flex justify-start flex-col col-start-1 col-span-3 row-start-1 row-span-1 p-1">
           <p class="text-xl md:text-3xl font-bold text-gray-300">
             {{ title }}
           </p>
@@ -14,10 +14,12 @@
           >
             {{ discount }}% Dcto.
           </p>
-          <div class="rounded w-3/4">
+        </div>
+        <div class="col-start-1 col-span-3 flex justify-center items-center row-start-2 row-span-1">
+          <div class="rounded w-full h-full mx-auto flex items-center">
             <button
               name="Detalle"
-              class="bg-green-500 flex justify-center items-center h-8 lg:h-12 text-white py-2 px-4 rounded-lg text-sm focus:outline-none"
+              class="bg-green-500 w-full flex justify-center items-center h-1/2 lg:h-16 text-white py-2 px-4 rounded-lg text-sm focus:outline-none"
               @click="redirection"
             >
               Más Información
