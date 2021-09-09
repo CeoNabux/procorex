@@ -46,7 +46,7 @@
           </button>
         </div>
       </div>
-      <div class="bg-white border-b border-blue-700 mobile-menu">
+      <div class="bg-white border-b border-blue-700 mobile-menu z-30">
         <div class="max-w-screen-xl mx-auto">
           <!-- SEGUNDA SECCION PARA EL MENU -->
           <div class="flex justify-center py-2">

@@ -17,7 +17,7 @@
             {{description}}
           </p>
           <div class="mt-3 mx-auto lg:mx-0 w-1/2">
-            <p-button name="Contáctanos" class="bg-yellow-600 text-white h-16" />
+            <p-button name="Contáctanos" class="bg-yellow-600 text-white h-16" @click="redirection" />
           </div>
         </div>
         <figure class="w-2/5 hidden lg:flex justify-center items-end">
@@ -48,6 +48,11 @@ export default {
       default: true
     }
   },
+  methods: {
+    redirection() {
+      this.$router.push('/contact')
+    }
+  }
 }
 </script>
 
