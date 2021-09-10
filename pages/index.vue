@@ -1,6 +1,9 @@
 <template>
   <div>
-    <the-hero :array='heroSlides' />
+    <div class="w-full flex justify-center items-center">
+      <loader :loading="!getHero.length" />
+    </div>
+    <the-hero v-if="getHero.length" :array='getHero' />
     <the-discounts :list="getDiscounts" />
     <the-catalogues :array="getCatalogos" />
     <the-products :productos="getProductos" />
@@ -16,35 +19,19 @@ export default {
     productos: [],
     posts: [],
     discounts: [],
-    heroSlides: [
-      {
-        image: require('@/assets/general/tools-1.png'),
-        title: 'Todo lo que necesitas en herramientas para la industria',
-        description: 'A tu lado desde del 2000'
-      },
-      {
-        image: require('@/assets/general/tools-3.jpg'),
-        title: 'Somos la mejor opción para tu empresa',
-        description: 'Precios competitivos con las mejores marcas'
-      },
-      {
-        image: require('@/assets/general/destornillador-no-bg-no-exif.png'),
-        title: 'Soluciones al alcance de un click',
-        description: 'Seguimos trabajando para ustedes'
-      },
-    ]
   }),
   computed: {
-    ...mapGetters('getProducts', ['getProductos', 'getPosts', 'getCatalogos', 'getDiscounts'])
+    ...mapGetters('getProducts', ['getProductos', 'getPosts', 'getCatalogos', 'getDiscounts', 'getHero']),
   },
   mounted() {
+    this.loadHero()
     this.loadProducts()
     this.loadDiscounts()
     this.loadPosts()
     this.loadCatalogues()
   },
   methods: {
-    ...mapActions('getProducts', ['fetchProducts', 'fetchCatalogues', 'fetchDiscounts', 'fetchPosts']),
+    ...mapActions('getProducts', ['fetchProducts', 'fetchCatalogues', 'fetchDiscounts', 'fetchPosts', 'fetchHero']),
     loadProducts() {
       this.fetchProducts({
         starts_with: 'productos',
@@ -69,6 +56,12 @@ export default {
         version: 'published'
       })
     },
+    loadHero() {
+      this.fetchHero({
+        starts_with: 'homehero',
+        version: 'published'
+      })
+    }
   }
 };
 </script>
