@@ -1,12 +1,11 @@
 <template>
   <div>
     <VueSlickCarousel v-bind='settings'>
-      <div v-for="(slide, i) in heroSlides" :key="i">
+      <div v-for="(item, i) in array" :key="i">
         <hero-slide
-          :title="slide.title"
-          :description="slide.description"
-          :bg-image="slide.bgImage"
-          :image="slide.image"
+          :title="item.title"
+          :description="item.description"
+          :image="item.image"
         />
       </div>
     </VueSlickCarousel>
@@ -21,6 +20,12 @@ export default {
   components: {
     VueSlickCarousel
   },
+  props: {
+    array: {
+      type: Array,
+      require: true
+    }
+  },
   data: () => ({
     settings: {
       arrows: false,
@@ -32,27 +37,7 @@ export default {
       infinite: true,
       pauseOnFocus: true,
       speed: 1000,
-    },
-    heroSlides: [
-      {
-        image: require('@/assets/general/tools-1.png'),
-        bgImage: require('@/assets/bg/bg-1.jpg'),
-        title: 'Todo lo que necesitas en herramientas para la industria',
-        description: 'A tu lado desde del 2000'
-      },
-      {
-        image: require('@/assets/general/tools-3.jpg'),
-        bgImage: require('@/assets/bg/bg-1.jpg'),
-        title: 'Somos la mejor opción para tu empresa',
-        description: 'Precios competitivos con las mejores marcas'
-      },
-      {
-        image: require('@/assets/general/destornillador-no-bg-no-exif.png'),
-        bgImage: require('@/assets/bg/bg-1.jpg'),
-        title: 'Soluciones al alcance de un click',
-        description: 'Seguimos trabajando para ustedes'
-      },
-    ]
+    }
   })
 }
 </script>

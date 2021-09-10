@@ -39,15 +39,14 @@ export default {
       type: String,
       default: true
     },
-    bgImage: {
-      type: String,
-      default: true
-    },
     image: {
       type: String,
       default: true
-    }
+    },
   },
+  data: () => ({
+    bgImage: require('@/assets/bg/bg-1.jpg')
+  }),
   methods: {
     redirection() {
       this.$router.push('/contact')

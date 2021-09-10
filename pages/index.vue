@@ -1,6 +1,6 @@
 <template>
   <div>
-    <the-hero />
+    <the-hero :array='heroSlides' />
     <the-discounts :list="getDiscounts" />
     <the-catalogues :array="getCatalogos" />
     <the-products :productos="getProductos" />
@@ -15,7 +15,24 @@ export default {
     catalogos: [],
     productos: [],
     posts: [],
-    discounts: []
+    discounts: [],
+    heroSlides: [
+      {
+        image: require('@/assets/general/tools-1.png'),
+        title: 'Todo lo que necesitas en herramientas para la industria',
+        description: 'A tu lado desde del 2000'
+      },
+      {
+        image: require('@/assets/general/tools-3.jpg'),
+        title: 'Somos la mejor opción para tu empresa',
+        description: 'Precios competitivos con las mejores marcas'
+      },
+      {
+        image: require('@/assets/general/destornillador-no-bg-no-exif.png'),
+        title: 'Soluciones al alcance de un click',
+        description: 'Seguimos trabajando para ustedes'
+      },
+    ]
   }),
   computed: {
     ...mapGetters('getProducts', ['getProductos', 'getPosts', 'getCatalogos', 'getDiscounts'])
