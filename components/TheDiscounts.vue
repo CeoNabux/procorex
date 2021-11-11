@@ -1,7 +1,7 @@
 <template>
   <div class="w-full max-w-screen-xl mt-4 mx-auto my-16">
     <div class="w-full flex flex-col justify-center items-center mx-auto">
-      <p class=" mx-auto text-4xl text-blue-900 font-bold mb-6">
+      <p class=" mx-auto text-4xl text-blue-700 font-bold mb-6">
         Descuentos especiales
       </p>
       <div class="w-full flex justify-center items-center">
