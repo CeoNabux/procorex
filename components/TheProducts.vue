@@ -13,7 +13,7 @@
               :title="item.title"
               :image="item.image"
               :id="item.id"
-              :description="item.description.substring(0, 33)"
+              :description="item.description.substring(0, 50)"
             />
           </div>
       </div>

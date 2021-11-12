@@ -1,18 +1,19 @@
 <template>
-  <nuxt-link :to="`blog/${id}`" class="w-72 h-80 shadow-lg bg-image rounded-md" :style="{backgroundImage: 'url(' + image + ')'}">
-    <div class="w-full h-full flex flex-col justify-between bg-gradient-to-tl from-indigo-900">
-      <div class="py-2 px-3 my-4 mx-2 lg:m-1 w-full h-full flex flex-col justify-between ">
-        <p class="font-semibold text-gray-50 text-right">
-          {{ time.slice(0, 10) }}
+  <nuxt-link :to="`blog/${id}`" class="w-72 h-80 shadow-lg rounded-md">
+    <div class="w-full relative">
+      <div
+        class="w-full h-72 bg-image"
+        :style="{ backgroundImage: 'url(' + image + ')' }"
+      />
+      <span
+        class="bg-yellow-500 absolute top-0 px-2 py-1 text-base text-white rounded-xl"
+        >Blog</span
+      >
+      <div class="bg-white h-2 w-full" />
+      <div class="w-full h-1/6 flex items-center rounded-b-lg bg-yellow-500">
+        <p class="text-lg text-white text-left mx-2 w-full">
+          {{ title }}
         </p>
-        <div class="w-full">
-          <p class="text-2xl font-bold text-white">
-            {{ title }}
-          </p>
-          <p class="font-medium text-gray-300 text-left">
-            {{ description }}
-          </p>
-        </div>
       </div>
     </div>
   </nuxt-link>
@@ -37,12 +38,12 @@ export default {
       title: String,
       required: true
     },
-    id : {
+    id: {
       title: String,
       required: true
     }
   }
-}
+};
 </script>
 
 <style scoped>
