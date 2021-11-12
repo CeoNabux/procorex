@@ -1,12 +1,13 @@
 <template>
   <div class="w-full h-96 rounded border shadow scale-up">
     <a :href="link" target="_blank">
-      <div class="w-full h-5/6 bg-image" :style="{backgroundImage:`url(${bgImage})`}" alt="catalogoImagen" />
-      <div class="w-full h-1/6 flex items-center">
-        <p class="text-2xl text-gray-500 mx-2">
+      <div class="w-full h-1/6 flex items-center rounded-t-lg bg-yellow-500">
+        <p class="text-2xl text-white text-center mx-2">
           {{ title }}
         </p>
       </div>
+      <div class="bg-white h-2 w-full" />
+      <div class="w-full h-5/6 bg-image" :style="{backgroundImage:`url(${bgImage})`}" alt="catalogoImagen" />
     </a>
   </div>
 </template>
