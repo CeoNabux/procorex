@@ -48,15 +48,16 @@ export const actions = {
       version: context.version,
       starts_with: context.starts_with
     });
+    console.log(productos.data.stories);
     commit(
       "SET_PRODUCTS",
       productos.data.stories.map(producto => {
         return {
           id: producto.slug,
           title: producto.content.title,
-          image: producto.content.image.filename,
+          image: producto.content.image[0].filename,
           categoria: producto.content.categorias,
-          description: producto.content.description.slice(0, 40)
+          description: producto.content.description.slice(0, 70)
         };
       })
     );
@@ -73,9 +74,9 @@ export const actions = {
         return {
           id: producto.slug,
           title: producto.content.title,
-          image: producto.content.image.filename,
+          image: producto.content.image[0].filename,
           categoria: producto.content.categorias,
-          description: producto.content.description.slice(0, 40)
+          description: producto.content.description.slice(0, 70)
         };
       })
     );

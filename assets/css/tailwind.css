@@ -1,6 +1,12 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
-@import '~/assets/css/fonts'
+@layer base {
+  @font-face {
+    font-family: 'Bebas';
+    font-weight: 400;
+    src: url('~/assets/fonts/bebas/BebasNeue-Regular.ttf')
+  }
+}
