@@ -48,7 +48,6 @@ export const actions = {
       version: context.version,
       starts_with: context.starts_with
     });
-    console.log(productos.data.stories);
     commit(
       "SET_PRODUCTS",
       productos.data.stories.map(producto => {

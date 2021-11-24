@@ -8,5 +8,25 @@
     font-family: 'Bebas';
     font-weight: 400;
     src: url('~/assets/fonts/bebas/BebasNeue-Regular.ttf')
+  },
+  @font-face {
+    font-family: 'Gobold';
+    font-weight: 100;
+    src: url('~/assets/fonts/gobold/Gobold-High-Thin.otf')
+  },
+  @font-face {
+    font-family: 'Gobold';
+    font-weight: 300;
+    src: url('~/assets/fonts/gobold/Gobold-Light.otf')
+  },
+  @font-face {
+    font-family: 'Gobold';
+    font-weight: 400;
+    src: url('~/assets/fonts/gobold/Gobold-Regular.otf')
+  },
+  @font-face {
+    font-family: 'Gobold';
+    font-weight: 800;
+    src: url('~/assets/fonts/gobold/Gobold-Bold.otf')
   }
 }

@@ -7,12 +7,12 @@
       <div class="w-full flex p-2 justify-center max-w-screen-2xl mx-auto">
         <div class="container w-full flex flex-col justify-between items-center lg:items-start lg:w-3/5">
           <h2
-            class="text-blue-700 text-5xl font-semibold font-bebas mt-8 w-full lg:w-4/5 mb-2 text-center lg:text-left"
+            class="text-blue-700 sm:text-5xl text-7xl font-semibold font-bebas mt-8 w-full lg:w-4/5 mb-2 text-center lg:text-left"
           >
             {{title}}
           </h2>
           <p
-            class="my-4 lg:mt-2 text-gray-800 text-3xl font-light w-full lg:w-3/5 text-center lg:text-left"
+            class="my-4 lg:mt-2 text-gray-800 sm:text-3xl text-5xl font-go w-full lg:w-3/5 text-center lg:text-left"
           >
             {{description}}
           </p>
