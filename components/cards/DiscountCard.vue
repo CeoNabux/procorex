@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full p-2 my-12">
+  <div class="w-full p-2 my-6 md:my-12">
     <div class="w-full rounded-t-xl bg-yellow-500 py-1 px-2">
       <p class="text-white text-lg text-center">{{ title }}</p>
     </div>
