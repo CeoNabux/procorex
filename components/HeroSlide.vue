@@ -5,19 +5,25 @@
       :style="{ backgroundImage: 'url(' + bgImage + ')' }"
     >
       <div class="w-full flex p-2 justify-center max-w-screen-2xl mx-auto">
-        <div class="container w-full flex flex-col justify-between items-center lg:items-start lg:w-3/5">
+        <div
+          class="container w-full flex flex-col justify-between items-center lg:items-start lg:w-3/5"
+        >
           <h2
             class="text-blue-700 text-4xl md:text-7xl font-semibold font-bebas mt-8 w-full lg:w-4/5 mb-2 text-center lg:text-left"
           >
-            {{title}}
+            {{ title }}
           </h2>
           <p
             class="my-4 lg:mt-2 text-gray-800 text-3xl lg:text-5xl font-normal font-go w-full lg:w-3/5 text-center lg:text-left"
           >
-            {{description}}
+            {{ description }}
           </p>
           <div class="mt-3 mx-auto lg:mx-0 w-1/2">
-            <p-button name="Contáctanos" class="bg-yellow-500 text-white h-16" @click="redirection" />
+            <p-button
+              name="Contáctanos"
+              class="bg-yellow-500 text-white h-16"
+              @click="redirection"
+            />
           </div>
         </div>
         <figure class="w-2/5 hidden lg:flex justify-center items-end">
@@ -42,17 +48,17 @@ export default {
     image: {
       type: String,
       default: true
-    },
+    }
   },
   data: () => ({
-    bgImage: require('@/assets/bg/bg-1.jpg')
+    bgImage: require("@/assets/bg/bg-1.jpg")
   }),
   methods: {
     redirection() {
-      this.$router.push('/contact')
+      this.$router.push("/contact");
     }
   }
-}
+};
 </script>
 
 <style scoped>
