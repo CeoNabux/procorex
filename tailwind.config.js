@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         bebas: ["Bebas"],
-        go: ["Gobold"]
+        gobold: ["Gobold"]
       }
     }
   },

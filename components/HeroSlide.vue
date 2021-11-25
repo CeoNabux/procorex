@@ -12,7 +12,7 @@
             {{title}}
           </h2>
           <p
-            class="my-4 lg:mt-2 text-gray-800 sm:text-3xl text-5xl font-go w-full lg:w-3/5 text-center lg:text-left"
+            class="my-4 lg:mt-2 text-gray-800 sm:text-3xl text-5xl font-normal font-go w-full lg:w-3/5 text-center lg:text-left"
           >
             {{description}}
           </p>
