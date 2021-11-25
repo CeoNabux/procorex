@@ -6,8 +6,8 @@
       </figure>
       <div class="w-full lg:w-3/5 flex flex-col justify-center items-start lg:flex-row lg:justify-center lg:items-start">
         <div class="w-full lg:w-1/3 mb-12 lg:mb-0">
-          <p class="text-blue-900 font-light text-xl">
-            Necesitas ayuda?
+          <p class="text-blue-900 font-bebas font-light text-xl">
+            ¿Necesitas ayuda?
           </p>
           <p class="text-blue-900 font-bold text-3xl">
             2266450

@@ -1,7 +1,7 @@
 <template>
   <div class="w-full max-w-screen-xl mx-auto my-16">
     <div class="w-full flex flex-col justify-center items-center mx-auto">
-      <p class=" mx-auto text-4xl text-blue-700 font-bold mb-10">
+      <p class="mx-auto text-4xl md:text-5xl lg:text-6xl text-blue-700 font-bebas mb-3 lg:mb-6">
         Últimas noticias
       </p>
       <div class="w-full flex justify-center items-center">
