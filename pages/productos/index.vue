@@ -3,7 +3,9 @@
     <h2 class="max-w-screen-xl text-5xl font-bold text-blue-900 w-full my-16">
       Productos
     </h2>
-    <div class="max-w-screen-xl flex flex-wrap justify-between items-start w-full px-2">
+    <div
+      class="max-w-screen-xl flex flex-wrap justify-between items-start w-full px-2"
+    >
       <div class="w-full lg:w-1/5">
         <div class="flex flex-start align-items mb-4">
           <p class="text-blue-900 text-base mr-2">
@@ -29,8 +31,15 @@
         <div class="w-full flex justify-center items-center">
           <loader :loading="isLoading" />
         </div>
-        <div v-if="!isLoading" class="w-full px-2 flex flex-wrap justify-between mx-auto py-4">
-          <div v-for="(item, i) in getProductos" :key="i" class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3">
+        <div
+          v-if="!isLoading"
+          class="w-full px-2 flex flex-wrap justify-between mx-auto py-4"
+        >
+          <div
+            v-for="(item, i) in getProductos"
+            :key="i"
+            class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3"
+          >
             <product-card
               :title="item.title"
               :image="item.image"
@@ -39,9 +48,16 @@
             />
           </div>
         </div>
+        <div class="w-full flex justify-center items-center">
+          <loader :loading="getLoading" />
+        </div>
         <div class="w-full py-2">
           <div class="mx-auto w-64 h-14">
-            <p-button name="Cargar más" class="bg-yellow-500" @click="getMoreProducts" />
+            <p-button
+              name="Cargar más"
+              class="bg-yellow-500"
+              @click="getMoreProducts"
+            />
           </div>
         </div>
       </div>
@@ -50,30 +66,31 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from "vuex";
 import ProductCard from "@/components/cards/ProductCard.vue";
 
 export default {
   components: {
-    ProductCard,
+    ProductCard
   },
   data: () => ({
     isLoading: false,
     initialPage: 1
   }),
   computed: {
-    ...mapGetters('getProducts', ['getProductos'])
+    ...mapGetters("getProducts", ["getProductos"]),
+    ...mapGetters("getProducts", ["getLoading"])
   },
   async asyncData({ app, store }) {
     const categorias = await app.$storyapi.get("cdn/stories", {
       starts_with: "categorias/"
     });
-    store.dispatch('getProducts/fetchProducts', {
-      starts_with: 'productos/',
-      version: 'published',
+    store.dispatch("getProducts/fetchProducts", {
+      starts_with: "productos/",
+      version: "published",
       per_page: 6,
-      page: 1,
-    })
+      page: 1
+    });
     return {
       categorias: categorias.data.stories.map(categoria => {
         return {
@@ -83,32 +100,31 @@ export default {
           uid: categoria.uuid
         };
       })
-    }
+    };
   },
   methods: {
-    ...mapActions('getProducts', ['fetchProductsByCategory']),
+    ...mapActions("getProducts", ["fetchProductsByCategory", "settingLoading"]),
     productsByCategory(item) {
-      this.isLoading=true
-      this.initialPage = this.initialPage + 1
+      this.isLoading = true;
       this.fetchProductsByCategory({
         starts_with: "productos/",
-        per_page: 6,
-        page: this.initialPage,
         filter_query: {
           categorias: {
             all_in_array: item
           }
         }
-      }).finally(() => this.isLoading = false)
+      }).finally(() => (this.isLoading = false));
     },
     getMoreProducts() {
-      this.initialPage += 1
-      this.$store.dispatch('getProducts/fetchProducts', {
-      starts_with: 'productos/',
-      version: 'published',
-      per_page: 6,
-      page: this.initialPage,
-    })
+      this.settingLoading(true);
+      this.initialPage += 1;
+      this.$store.dispatch("getProducts/fetchProducts", {
+        starts_with: "productos/",
+        version: "published",
+        per_page: 6,
+        page: this.initialPage
+      });
+      this.settingLoading(false);
     }
   }
 };

@@ -3,7 +3,8 @@ export const state = () => ({
   catalogos: [],
   posts: [],
   discounts: [],
-  hero: []
+  hero: [],
+  loading: false
 });
 
 export const getters = {
@@ -21,11 +22,17 @@ export const getters = {
   },
   getHero(state) {
     return state.hero;
+  },
+  getLoading(state) {
+    return state.loading
   }
 };
 
 export const mutations = {
   SET_PRODUCTS(state, productos) {
+    return (state.productos.push(...productos));
+  },
+  SET_PRODUCTS_BY_CATEGORIES(state, productos) {
     return (state.productos.push(...productos));
   },
   SET_POSTS(state, posts) {
@@ -39,6 +46,10 @@ export const mutations = {
   },
   SET_HEROS(state, heros) {
     return (state.hero = heros);
+  },
+  SET_LOADING(state, boolean) {
+    console.log('estamos dentro')
+    return (state.loading = boolean);
   }
 };
 
@@ -70,7 +81,7 @@ export const actions = {
       filter_query: context.filter_query
     });
     commit(
-      "SET_PRODUCTS",
+      "SET_PRODUCTS_BY_CATEGORIES",
       productos.data.stories.map(producto => {
         return {
           id: producto.slug,
@@ -147,5 +158,9 @@ export const actions = {
         };
       })
     );
+  },
+  settingLoading({commit}, payload) {
+    console.log(payload)
+    commit("SET_LOADING", payload)
   }
 };
