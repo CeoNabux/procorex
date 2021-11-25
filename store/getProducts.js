@@ -26,7 +26,7 @@ export const getters = {
 
 export const mutations = {
   SET_PRODUCTS(state, productos) {
-    return (state.productos = productos);
+    return (state.productos.push(...productos));
   },
   SET_POSTS(state, posts) {
     return (state.posts = posts);
@@ -44,7 +44,6 @@ export const mutations = {
 
 export const actions = {
   async fetchProducts({ commit }, context) {
-    console.log(context)
     const productos = await this.$storyapi.get("cdn/stories", {
       version: context.version,
       per_page: context.per_page,

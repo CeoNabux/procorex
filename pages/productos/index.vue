@@ -39,6 +39,11 @@
             />
           </div>
         </div>
+        <div class="w-full py-2">
+          <div class="mx-auto w-64 h-14">
+            <p-button name="Cargar más" class="bg-yellow-500" @click="getMoreProducts" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -97,8 +102,13 @@ export default {
       }).finally(() => this.isLoading = false)
     },
     getMoreProducts() {
-      // this.initialPage = this.initialPage + 1
-      console.log('estamos trabajando en traer mas prductos')
+      this.initialPage += 1
+      this.$store.dispatch('getProducts/fetchProducts', {
+      starts_with: 'productos/',
+      version: 'published',
+      per_page: 6,
+      page: this.initialPage,
+    })
     }
   }
 };
