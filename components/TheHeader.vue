@@ -55,7 +55,7 @@
                 <ul class="container flex justify-between items-center">
                   <li class="cursor-pointer" v-for="(item, i) in menu" :key="i">
                     <nuxt-link
-                      class="text-blue-800 text-lg font-semibold"
+                      class="text-blue-800 text-lg font-bebas"
                       :to="item.path"
                     >
                       {{ item.name }}
