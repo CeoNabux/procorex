@@ -7,7 +7,7 @@
       <div class="w-full flex justify-center items-center">
         <loader :loading="isLoadingPosts" />
       </div>
-      <div v-if="!isLoadingPosts"  class="w-full flex flex-wrap justify-center lg:justify-between items-center mx-auto">
+      <div v-if="!isLoadingPosts"  class="w-full px-2 flex flex-wrap justify-center lg:justify-between items-center mx-auto">
         <div v-for="(post, i) in lista.slice(0,3)" :key="i" class="w-full md:w-1/2 lg:w-1/3 mt-8 lg:mt-0 flex justify-center items-center">
           <post-preview
             :title="post.title"
