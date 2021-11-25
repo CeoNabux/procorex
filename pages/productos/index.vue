@@ -53,7 +53,8 @@ export default {
     ProductCard,
   },
   data: () => ({
-    isLoading: false
+    isLoading: false,
+    initialPage: 1
   }),
   computed: {
     ...mapGetters('getProducts', ['getProductos'])
@@ -64,7 +65,9 @@ export default {
     });
     store.dispatch('getProducts/fetchProducts', {
       starts_with: 'productos/',
-      version: 'published'
+      version: 'published',
+      per_page: 6,
+      page: 1,
     })
     return {
       categorias: categorias.data.stories.map(categoria => {
@@ -81,8 +84,11 @@ export default {
     ...mapActions('getProducts', ['fetchProductsByCategory']),
     productsByCategory(item) {
       this.isLoading=true
+      this.initialPage = this.initialPage + 1
       this.fetchProductsByCategory({
         starts_with: "productos/",
+        per_page: 6,
+        page: this.initialPage,
         filter_query: {
           categorias: {
             all_in_array: item
@@ -90,6 +96,10 @@ export default {
         }
       }).finally(() => this.isLoading = false)
     },
+    getMoreProducts() {
+      // this.initialPage = this.initialPage + 1
+      console.log('estamos trabajando en traer mas prductos')
+    }
   }
 };
 </script>

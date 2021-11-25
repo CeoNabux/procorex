@@ -17,11 +17,11 @@ export const getters = {
     return state.discounts;
   },
   getPosts(state) {
-    return state.posts
+    return state.posts;
   },
   getHero(state) {
-    return state.hero
-  },
+    return state.hero;
+  }
 };
 
 export const mutations = {
@@ -39,13 +39,16 @@ export const mutations = {
   },
   SET_HEROS(state, heros) {
     return (state.hero = heros);
-  },
+  }
 };
 
 export const actions = {
   async fetchProducts({ commit }, context) {
+    console.log(context)
     const productos = await this.$storyapi.get("cdn/stories", {
       version: context.version,
+      per_page: context.per_page,
+      page: context.page,
       starts_with: context.starts_with
     });
     commit(
@@ -134,15 +137,16 @@ export const actions = {
     const heros = await this.$storyapi.get("cdn/stories", {
       version: context.version,
       starts_with: context.starts_with
-    })
-    commit('SET_HEROS',
+    });
+    commit(
+      "SET_HEROS",
       heros.data.stories.map(hero => {
         return {
           title: hero.content.title,
           image: hero.content.Image.filename,
           description: hero.content.subtitle
-        }
+        };
       })
-    )
+    );
   }
 };
