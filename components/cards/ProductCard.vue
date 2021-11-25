@@ -5,10 +5,10 @@
       <figure class="w-full my-1 p-2">
         <img loading='lazy' :src="image" alt="tool" srcset="">
       </figure>
-      <p class="text-blue-900 font-medium text-lg">
+      <p class="text-blue-900 font-medium text-xl font-bebas">
         {{ title }}
       </p>
-      <p class="text-blue-900 font-light font-sm">
+      <p class="text-blue-900 text-sm font-go">
         {{ description }} ...
       </p>
       <div class="w-full mt-4 flex justify-center items-center">
