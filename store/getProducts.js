@@ -4,12 +4,16 @@ export const state = () => ({
   posts: [],
   discounts: [],
   hero: [],
-  loading: false
+  loading: false,
+  productsByCategories: []
 });
 
 export const getters = {
   getProductos(state) {
     return state.productos;
+  },
+  getProductsByCategory(state) {
+    return state.productsByCategories;
   },
   getCatalogos(state) {
     return state.catalogos;
@@ -24,16 +28,16 @@ export const getters = {
     return state.hero;
   },
   getLoading(state) {
-    return state.loading
+    return state.loading;
   }
 };
 
 export const mutations = {
   SET_PRODUCTS(state, productos) {
-    return (state.productos.push(...productos));
+    return state.productos.push(...productos);
   },
   SET_PRODUCTS_BY_CATEGORIES(state, productos) {
-    return (state.productos.push(...productos));
+    return state.productosByCategory.push(...productos);
   },
   SET_POSTS(state, posts) {
     return (state.posts = posts);
@@ -48,13 +52,19 @@ export const mutations = {
     return (state.hero = heros);
   },
   SET_LOADING(state, boolean) {
-    console.log('estamos dentro')
     return (state.loading = boolean);
+  },
+  RESET_PRODUCTS(state) {
+    return (state.productos = []);
+  },
+  RESET_PRODUCTS_BY_CATEGORIES(state) {
+    return (state.productsByCategories = []);
   }
 };
 
 export const actions = {
   async fetchProducts({ commit }, context) {
+    commit("RESET_PRODUCTS_BY_CATEGORIES");
     const productos = await this.$storyapi.get("cdn/stories", {
       version: context.version,
       per_page: context.per_page,
@@ -75,8 +85,11 @@ export const actions = {
     );
   },
   async fetchProductsByCategory({ commit }, context) {
+    commit("RESET_PRODUCTS");
     const productos = await this.$storyapi.get("cdn/stories", {
       version: context.version,
+      per_page: context.per_page,
+      page: context.page,
       starts_with: context.starts_with,
       filter_query: context.filter_query
     });
@@ -159,8 +172,13 @@ export const actions = {
       })
     );
   },
-  settingLoading({commit}, payload) {
-    console.log(payload)
-    commit("SET_LOADING", payload)
+  settingLoading({ commit }, payload) {
+    commit("SET_LOADING", payload);
+  },
+  resetProducts({ commit }) {
+    commit("RESET_PRODUCTS");
+  },
+  resetProductsByCategories({ commit }) {
+    commit("RESET_PRODUCTS_BY_CATEGORIES");
   }
 };

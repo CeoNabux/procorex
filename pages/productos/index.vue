@@ -28,15 +28,32 @@
       </div>
       <!-- AQUI VA LA SECCIONH DE PRODUCTOS -->
       <div class="w-full lg:w-4/5">
-        <div class="w-full flex justify-center items-center">
+        <div class="w-full flex justify-center items-start">
           <loader :loading="isLoading" />
         </div>
         <div
-          v-if="!isLoading"
+          v-if="!getProductos.length"
           class="w-full px-2 flex flex-wrap justify-between mx-auto py-4"
         >
           <div
             v-for="(item, i) in getProductos"
+            :key="i"
+            class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3"
+          >
+            <product-card
+              :title="item.title"
+              :image="item.image"
+              :id="item.id"
+              :description="item.description"
+            />
+          </div>
+        </div>
+        <div
+          v-else-if="!getProductsByCategory.length"
+          class="w-full px-2 flex flex-wrap justify-between mx-auto py-4"
+        >
+          <div
+            v-for="(item, i) in getProductsByCategory"
             :key="i"
             class="flex justify-center items-end w-full sm:w-1/2 lg:w-1/3"
           >
@@ -75,11 +92,15 @@ export default {
   },
   data: () => ({
     isLoading: false,
-    initialPage: 1
+    initialPage: 1,
+    category: ""
   }),
   computed: {
-    ...mapGetters("getProducts", ["getProductos"]),
-    ...mapGetters("getProducts", ["getLoading"])
+    ...mapGetters("getProducts", [
+      "getLoading",
+      "getProductos",
+      "getProductsByCategory"
+    ])
   },
   async asyncData({ app, store }) {
     const categorias = await app.$storyapi.get("cdn/stories", {
@@ -105,15 +126,16 @@ export default {
   methods: {
     ...mapActions("getProducts", ["fetchProductsByCategory", "settingLoading"]),
     productsByCategory(item) {
-      this.isLoading = true;
       this.fetchProductsByCategory({
         starts_with: "productos/",
+        page: 1,
+        per_page: 6,
         filter_query: {
           categorias: {
             all_in_array: item
           }
         }
-      }).finally(() => (this.isLoading = false));
+      });
     },
     getMoreProducts() {
       this.settingLoading(true);
