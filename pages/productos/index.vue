@@ -132,8 +132,6 @@ export default {
       this.category = item;
       this.firstPageForCategory = 1
       this.resetProductsByCategories()
-      console.log(item)
-      console.log(this.category)
       this.fetchProductsByCategory({
         starts_with: "productos/",
         page: 1,
