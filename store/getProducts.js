@@ -5,7 +5,7 @@ export const state = () => ({
   discounts: [],
   hero: [],
   loading: false,
-  productsByCategories: []
+  productsByCategory: []
 });
 
 export const getters = {
@@ -13,7 +13,7 @@ export const getters = {
     return state.productos;
   },
   getProductsByCategory(state) {
-    return state.productsByCategories;
+    return state.productsByCategory;
   },
   getCatalogos(state) {
     return state.catalogos;
@@ -36,8 +36,8 @@ export const mutations = {
   SET_PRODUCTS(state, productos) {
     return state.productos.push(...productos);
   },
-  SET_PRODUCTS_BY_CATEGORIES(state, productos) {
-    return state.productosByCategory.push(...productos);
+  SET_PRODUCTS_BY_CATEGORY(state, productos) {
+    return state.productsByCategory.push(...productos);
   },
   SET_POSTS(state, posts) {
     return (state.posts = posts);
@@ -94,7 +94,7 @@ export const actions = {
       filter_query: context.filter_query
     });
     commit(
-      "SET_PRODUCTS_BY_CATEGORIES",
+      "SET_PRODUCTS_BY_CATEGORY",
       productos.data.stories.map(producto => {
         return {
           id: producto.slug,

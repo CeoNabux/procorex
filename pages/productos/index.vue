@@ -29,11 +29,13 @@
       <!-- AQUI VA LA SECCIONH DE PRODUCTOS -->
       <div class="w-full lg:w-4/5">
         <div class="w-full flex justify-center items-start">
-          <loader :loading="isLoading" />
+          <loader
+            :loading="!getProductos.length && !getProductsByCategory.length"
+          />
         </div>
         <div
-          v-if="!getProductos.length"
-          class="w-full px-2 flex flex-wrap justify-between mx-auto py-4"
+          v-if="getProductos.length"
+          class="w-full flex flex-wrap justify-between"
         >
           <div
             v-for="(item, i) in getProductos"
@@ -49,7 +51,7 @@
           </div>
         </div>
         <div
-          v-else-if="!getProductsByCategory.length"
+          v-else-if="getProductsByCategory.length"
           class="w-full px-2 flex flex-wrap justify-between mx-auto py-4"
         >
           <div
@@ -126,6 +128,7 @@ export default {
   methods: {
     ...mapActions("getProducts", ["fetchProductsByCategory", "settingLoading"]),
     productsByCategory(item) {
+      this.category = item;
       this.fetchProductsByCategory({
         starts_with: "productos/",
         page: 1,
@@ -138,14 +141,30 @@ export default {
       });
     },
     getMoreProducts() {
+      console.log(this.category);
       this.settingLoading(true);
-      this.initialPage += 1;
-      this.$store.dispatch("getProducts/fetchProducts", {
-        starts_with: "productos/",
-        version: "published",
-        per_page: 6,
-        page: this.initialPage
-      });
+      if (this.item === "") {
+        this.initialPage += 1;
+        this.$store.dispatch("getProducts/fetchProducts", {
+          starts_with: "productos/",
+          version: "published",
+          per_page: 6,
+          page: this.initialPage
+        });
+      } else {
+        this.initialPage += 1;
+        this.$store.dispatch("getProducts/fetchProductsByCategory", {
+          starts_with: "productos/",
+          version: "published",
+          filter_query: {
+            categorias: {
+              all_in_array: this.item
+            }
+          },
+          per_page: 6,
+          page: this.initialPage
+        });
+      }
       this.settingLoading(false);
     }
   }
