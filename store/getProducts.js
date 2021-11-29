@@ -58,7 +58,7 @@ export const mutations = {
     return (state.productos = []);
   },
   RESET_PRODUCTS_BY_CATEGORIES(state) {
-    return (state.productsByCategories = []);
+    return (state.productsByCategory = []);
   }
 };
 

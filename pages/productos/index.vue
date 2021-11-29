@@ -95,7 +95,8 @@ export default {
   data: () => ({
     isLoading: false,
     initialPage: 1,
-    category: ""
+    category: "",
+    firstPageForCategory: 1
   }),
   computed: {
     ...mapGetters("getProducts", [
@@ -126,22 +127,25 @@ export default {
     };
   },
   methods: {
-    ...mapActions("getProducts", ["fetchProductsByCategory", "settingLoading"]),
+    ...mapActions("getProducts", ["fetchProductsByCategory", "settingLoading", "resetProductsByCategories"]),
     productsByCategory(item) {
       this.category = item;
+      this.firstPageForCategory = 1
+      this.resetProductsByCategories()
+      console.log(item)
+      console.log(this.category)
       this.fetchProductsByCategory({
         starts_with: "productos/",
         page: 1,
         per_page: 6,
         filter_query: {
           categorias: {
-            all_in_array: item
+            all_in_array: this.category
           }
         }
       });
     },
     getMoreProducts() {
-      console.log(this.category);
       this.settingLoading(true);
       if (this.item === "") {
         this.initialPage += 1;
@@ -152,7 +156,7 @@ export default {
           page: this.initialPage
         });
       } else {
-        this.initialPage += 1;
+        this.firstPageForCategory += 1;
         this.$store.dispatch("getProducts/fetchProductsByCategory", {
           starts_with: "productos/",
           version: "published",
@@ -162,7 +166,7 @@ export default {
             }
           },
           per_page: 6,
-          page: this.initialPage
+          page: this.firstPageForCategory
         });
       }
       this.settingLoading(false);
