@@ -9,7 +9,7 @@
         <img
           src="@/assets/logos/procorex-imagotipo.png"
           alt="logo-procorex"
-          class="w-1/5 lg:w-2/5"
+          class="w-1/5 lg:w-2/5 logo-image"
         />
       </figure>
       <div class="w-full lg:w-3/5">
@@ -117,3 +117,9 @@ export default {
   })
 };
 </script>
+
+<style scoped>
+.logo-image {
+  filter: grayscale(100%) saturate(100%) invert(100%);
+}
+</style>
