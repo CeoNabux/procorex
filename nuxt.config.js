@@ -48,7 +48,7 @@ export default {
     [
       "storyblok-nuxt",
       {
-        accessToken: "wTWl6mVTgNNdks4rUtxOrAtt",
+        accessToken: process.env.VUE_APP_STORYBLOK,
         cacheProvider: "memory"
       }
     ],
@@ -57,6 +57,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   env: {
-    GOOGLE_MAPS: "AIzaSyBQc4P1XMeB7jtTzLzSXpdYv-C5CVjd1-c"
+    GOOGLE_MAPS: process.env.VUE_APP_MAPS
   }
 };

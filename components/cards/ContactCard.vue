@@ -101,10 +101,10 @@ export default {
       }
       try {
         await emailjs.send(
-          'service_obc1bzq',
-          'template_s73jya8',
+          process.env.VUE_APP_SERVICE,
+          process.env.VUE_APP_TEMPLATE,
           params,
-          'user_Gz0RsCU9scvcA7DONJBoF'
+          process.env.VUE_APP_USERID
         )
         alert('email enviado')
         this.resetField
